@@ -1,7 +1,7 @@
 import { IconCalculator } from "@tabler/icons-react";
 import styles from "./Navbar.module.css";
 import NavbarButton from "./NavbarButton";
-import type { MutableRefObject} from "react";
+import type { MutableRefObject } from "react";
 import { useRef } from "react";
 import type { DockviewApi } from "dockview";
 
