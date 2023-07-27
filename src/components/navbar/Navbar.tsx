@@ -30,6 +30,7 @@ export default function Navbar({ dockviewApi }: INavbarProps) {
                 title="calculator"
                 onClick={spawnCalculator}
             />
+            <p className="text-red-200">sadas</p>
         </nav>
     );
 }

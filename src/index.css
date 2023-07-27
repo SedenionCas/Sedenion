@@ -1,4 +1,7 @@
 @import '../node_modules/dockview/dist/styles/dockview.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --depth-50: #1a1a1a;

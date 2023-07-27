@@ -4,7 +4,7 @@ import {
     DockviewApi,
     DockviewComponent,
 } from "dockview";
-import PanelBuilder from "./components/PanelBuilder";
+import PanelBuilder from "./components/panels/PanelBuilder";
 import Navbar from "./components/navbar/Navbar";
 import styles from "./App.module.css";
 import { MutableRefObject, useRef } from "react";
