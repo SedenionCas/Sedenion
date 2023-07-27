@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CalcBlock from "./CalcBlock";
 import { evaluate } from "solvurus_engine";
-import styles from "./NumericEvaluator.module.css";
 
 export default function NumericEvaluator() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
@@ -19,11 +18,11 @@ export default function NumericEvaluator() {
 
     return (
         <div>
-            <div id={styles.panelContainer}>{...calcBlocks}</div>
+            <div className="overflow-y-auto">{...calcBlocks}</div>
             <form onSubmit={handleSubmit}>
                 <input
                     id={"expressionField"}
-                    className={styles.expressionField}
+                    className="absolute bottom-4 m-5 mr-10 h-10 w-[calc(100%-2*1.25rem)] border-none bg-truegray-700 px-2 text-lg text-truegray-50 focus:outline-none"
                 />
             </form>
         </div>

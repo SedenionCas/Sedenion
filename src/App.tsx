@@ -2,7 +2,6 @@ import type { DockviewReadyEvent, DockviewApi } from "dockview";
 import { DockviewReact } from "dockview";
 import PanelBuilder from "./components/panels/PanelBuilder";
 import Navbar from "./components/navbar/Navbar";
-import styles from "./App.module.css";
 import type { MutableRefObject } from "react";
 import { useRef } from "react";
 
@@ -32,7 +31,7 @@ const Component = ({ dockviewApi }: IComponentProps) => {
 export default function App() {
     const dockviewApiRef = useRef<DockviewApi | null>(null);
     return (
-        <div id={styles.container} className="dockview-theme-dark">
+        <div className="dockview-theme-dark ml-16">
             <Navbar dockviewApi={dockviewApiRef} />
             <Component dockviewApi={dockviewApiRef} />
         </div>

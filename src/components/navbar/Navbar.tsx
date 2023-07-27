@@ -1,5 +1,4 @@
 import { IconCalculator } from "@tabler/icons-react";
-import styles from "./Navbar.module.css";
 import NavbarButton from "./NavbarButton";
 import type { MutableRefObject } from "react";
 import { useRef } from "react";
@@ -25,7 +24,7 @@ export default function Navbar({ dockviewApi }: INavbarProps) {
     };
 
     return (
-        <nav id={styles.navbar}>
+        <nav className="fixed left-0 top-0 z-10 h-screen w-16 bg-truegray-500 text-truegray-50 flex justify-center">
             <NavbarButton
                 icon={<IconCalculator />}
                 title="calculator"
