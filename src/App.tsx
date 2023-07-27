@@ -1,13 +1,14 @@
-import {
+import type {
     DockviewReadyEvent,
+    DockviewApi} from "dockview";
+import {
     DockviewReact,
-    DockviewApi,
-    DockviewComponent,
 } from "dockview";
 import PanelBuilder from "./components/panels/PanelBuilder";
 import Navbar from "./components/navbar/Navbar";
 import styles from "./App.module.css";
-import { MutableRefObject, useRef } from "react";
+import type { MutableRefObject} from "react";
+import { useRef } from "react";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;

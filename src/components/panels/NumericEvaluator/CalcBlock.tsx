@@ -1,7 +1,7 @@
 import styles from "./CalcBlock.module.css";
 
 interface CompletedProps {
-    expression: String;
+    expression: string;
     solution: number;
 }
 

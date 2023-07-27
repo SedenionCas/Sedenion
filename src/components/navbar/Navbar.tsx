@@ -1,8 +1,9 @@
 import { IconCalculator } from "@tabler/icons-react";
 import styles from "./Navbar.module.css";
 import NavbarButton from "./NavbarButton";
-import { MutableRefObject, useRef } from "react";
-import { DockviewApi } from "dockview";
+import type { MutableRefObject} from "react";
+import { useRef } from "react";
+import type { DockviewApi } from "dockview";
 
 interface INavbarProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;

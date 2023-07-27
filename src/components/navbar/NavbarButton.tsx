@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./NavbarButton.module.css";
 
 interface INavbarButtonProps {
-    title: String;
+    title: string;
     icon: React.JSX.Element;
     onClick: () => void;
 }
