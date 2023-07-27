@@ -1,27 +1,27 @@
-@import '../node_modules/dockview/dist/styles/dockview.css';
+@import "../node_modules/dockview/dist/styles/dockview.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --depth-50: #1a1a1a;
-  --depth-40: #212121;
-  --depth-30: #343434;
-  --depth-20: #424242;
-  --depth-10: #4d4d4d;
-  --depth-5: #555555;
-  --depth-0: #ececec;
+    --depth-50: #1a1a1a;
+    --depth-40: #212121;
+    --depth-30: #343434;
+    --depth-20: #424242;
+    --depth-10: #4d4d4d;
+    --depth-5: #555555;
+    --depth-0: #ececec;
 
-  --blue-deep: #424c91;
-  --blue: #4554b5;
-  --blue-light: #5464c9;
+    --blue-deep: #424c91;
+    --blue: #4554b5;
+    --blue-light: #5464c9;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 .grid-view {
-  height: 100vh !important;
+    height: 100vh !important;
 }

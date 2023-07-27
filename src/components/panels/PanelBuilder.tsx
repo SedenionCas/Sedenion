@@ -1,9 +1,9 @@
 import NumericEvaluator from "./NumericEvaluator/NumericEvaluator";
 
 export default function PanelBuilder() {
-  return {
-  basicCalc: () => {
-    return <NumericEvaluator/>;
-  },
-};
+    return {
+        basicCalc: () => {
+            return <NumericEvaluator />;
+        },
+    };
 }

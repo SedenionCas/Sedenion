@@ -1,7 +1,7 @@
 #container {
-    width: calc(100%-2*1.25rem);
+    width: calc(100%-2 * 1.25rem);
     overflow-x: scroll;
-    padding: .8rem;
+    padding: 0.8rem;
     margin: 1.25rem;
     background: var(--depth-50);
 }
