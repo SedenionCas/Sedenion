@@ -16,7 +16,7 @@ interface IComponentProps {
 const Component = ({ dockviewApi }: IComponentProps) => {
     const onReady = (event: DockviewReadyEvent) => {
         event.api.addPanel({
-            id: "panel1",
+            id: "panel 1",
             component: "basicCalc",
         });
 

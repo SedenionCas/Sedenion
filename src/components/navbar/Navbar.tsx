@@ -1,21 +1,26 @@
 import { IconCalculator } from "@tabler/icons-react";
 import styles from "./Navbar.module.css";
 import NavbarButton from "./NavbarButton";
-import { MutableRefObject } from "react";
+import { MutableRefObject, useRef } from "react";
 import { DockviewApi } from "dockview";
 
 interface INavbarProps {
-    dockviewApi: MutableRefObject<DockviewApi | null>
+    dockviewApi: MutableRefObject<DockviewApi | null>;
 }
 
-export default function Navbar({dockviewApi}:INavbarProps) {
+interface IPanelCounts {
+    options: number;
+}
 
+export default function Navbar({ dockviewApi }: INavbarProps) {
+    const panelCounts = useRef<IPanelCounts>({ options: 2 });
     const spawnCalculator = () => {
         if (dockviewApi.current === null) return;
         dockviewApi.current.addPanel({
-            id: "panel2",
+            id: "panel " + panelCounts.current.options,
             component: "basicCalc",
         });
+        panelCounts.current.options++;
     };
 
     return (
