@@ -1,0 +1,4 @@
+#watermark {
+    background-image: radial-gradient(var(--truegray-500) 1px, transparent 0);
+    background-size: 20px 20px;
+}

@@ -4,6 +4,7 @@ import PanelBuilder from "./components/panels/PanelBuilder";
 import Navbar from "./components/navbar/Navbar";
 import type { MutableRefObject } from "react";
 import { useRef } from "react";
+import Watermark from "./components/watermark/Watermark";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -11,11 +12,6 @@ interface IComponentProps {
 
 const Component = ({ dockviewApi }: IComponentProps) => {
     const onReady = (event: DockviewReadyEvent) => {
-        event.api.addPanel({
-            id: "panel 1",
-            component: "basicCalc",
-        });
-
         dockviewApi.current = event.api;
     };
 
@@ -24,6 +20,7 @@ const Component = ({ dockviewApi }: IComponentProps) => {
             components={PanelBuilder()}
             tabComponents={{}}
             onReady={onReady}
+            watermarkComponent={Watermark}
         />
     );
 };

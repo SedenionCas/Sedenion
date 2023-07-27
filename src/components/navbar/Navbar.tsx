@@ -24,7 +24,7 @@ export default function Navbar({ dockviewApi }: INavbarProps) {
     };
 
     return (
-        <nav className="fixed left-0 top-0 z-10 h-screen w-16 bg-truegray-600 text-truegray-50 flex justify-center">
+        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 justify-center bg-truegray-600 text-truegray-50">
             <NavbarButton
                 icon={<IconCalculator />}
                 title="calculator"
