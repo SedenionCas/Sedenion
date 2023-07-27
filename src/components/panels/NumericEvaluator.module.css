@@ -1,5 +1,5 @@
 #panelContainer {
-    overflow-y: scroll;
+    overflow-y: scroll !important;
 }
 
 .expressionField {
@@ -13,5 +13,4 @@
     background: var(--depth-50);
     border: none;
     color: var(--depth-0);
-
 }
