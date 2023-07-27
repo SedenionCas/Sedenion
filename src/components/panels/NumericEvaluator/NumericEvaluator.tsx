@@ -7,6 +7,8 @@ export default function NumericEvaluator() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const target: any = event.target;
         const value = target.expressionField.value;
         setCalcBlocks([
