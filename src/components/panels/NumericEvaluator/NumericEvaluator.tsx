@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CalcBlock from "./CalcBlock";
-import { evaluate } from "solvurus_engine";
+import { evaluate } from "sedenion_engine";
 
 export default function NumericEvaluator() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
