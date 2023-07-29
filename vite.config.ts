@@ -6,6 +6,7 @@ import wasm from "vite-plugin-wasm";
 export default defineConfig({
     plugins: [react(), wasm()],
     build: {
+        assetsDir: "public",
         target: "esnext",
     },
 });
