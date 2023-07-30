@@ -1,7 +1,7 @@
 # Sedenion
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/SedenionCas/Sedenion/main)
 ![GitHub](https://img.shields.io/github/license/SedenionCas/Sedenion)
-![Static Badge](https://img.shields.io/badge/docs-page-blue?link=https%3A%2F%2Fdocs.page%2FSedenionCas%2FSedenion)
+[![Static Badge](https://img.shields.io/badge/docs-page-blue)](https://docs.page/SedenionCas/Sedenion)
 
 Sedenion is an open-source computer algebra system (CAS) project with a primary objective of developing an efficient and dependable CAS calculator. The project is still in its early alpha phase so some bugs may occur. 
 
