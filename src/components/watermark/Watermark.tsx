@@ -19,7 +19,7 @@ export default function Watermark({containerApi}:IWatermarkPanelProps) {
     };
 
     return (
-        <div className="flex h-full w-full items-center justify-center">
+        <div id="watermark" className="flex h-full w-full items-center justify-center">
             <div className="watermark mx-24 grid grid-cols-4 grid-rows-3">
                 <div className="col-span-3 col-start-1 row-span-3 m-3 rounded-md bg-truegray-600 p-10">
                     <div className="flex items-center">
