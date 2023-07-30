@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+# Sedenion
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/SedenionCas/Sedenion/main)
+![GitHub](https://img.shields.io/github/license/SedenionCas/Sedenion)
+![Static Badge](https://img.shields.io/badge/docs-page-blue?link=https%3A%2F%2Fdocs.page%2FSedenionCas%2FSedenion)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sedenion is an open-source computer algebra system (CAS) project with a primary objective of developing an efficient and dependable CAS calculator. The project is still in its early alpha phase so some bugs may occur. 
 
-Currently, two official plugins are available:
+This repository contains the main user interface written in react and typescript.
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Contributing
+We welcome contributions from the community to enhance Sedenion further. If you want to contribute, please follow the guidelines outlined in the [`contributing.md`](https://github.com/SedenionCas/Sedenion/blob/main/contributing.md) file.
 
-## Expanding the ESLint configuration
+## Support
+If you encounter any issues or have questions regarding the Sedenion, please [open an issue](https://github.com/SedenionCas/Sedenion/issues) on our GitHub repository.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## License
+This project is licensed under GNU GPL-v3. You can find more detailed information in the LICENSE file located in the root of this repository.
 
--   Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
--   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Acknowledgments
+We would like to express our gratitude to all the developers and contributors who have made this project possible. Full list of open source projects can be found in the settings page of Sedenion.
