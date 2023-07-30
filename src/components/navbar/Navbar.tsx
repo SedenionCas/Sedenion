@@ -6,9 +6,13 @@ import { getAppState, setAppState } from "../../store";
 
 interface INavbarProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
+    setShowSettingsModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Navbar({ dockviewApi }: INavbarProps) {
+export default function Navbar({
+    dockviewApi,
+    setShowSettingsModal,
+}: INavbarProps) {
     const spawnCalculator = () => {
         if (dockviewApi.current === null) return;
         const state = getAppState();
@@ -22,7 +26,7 @@ export default function Navbar({ dockviewApi }: INavbarProps) {
     };
 
     return (
-        <nav className="fixed left-0 top-0 z-10 flex flex-col h-screen w-16 justify-between items-center bg-truegray-600 text-truegray-50">
+        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between bg-truegray-600 text-truegray-50">
             <div>
                 <NavbarButton
                     icon={<IconCalculator />}
@@ -34,7 +38,9 @@ export default function Navbar({ dockviewApi }: INavbarProps) {
                 <NavbarButton
                     icon={<IconSettings />}
                     title="settings"
-                    onClick={() => {}}
+                    onClick={() => {
+                        setShowSettingsModal(true);
+                    }}
                 />
             </div>
         </nav>
