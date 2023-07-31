@@ -18,7 +18,7 @@ export default function NumericEvaluator() {
 
     return (
         <div>
-            <div className="overflow-y-auto">{...calcBlocks}</div>
+            <div className="overflow-y-scroll max-h-[calc(100vh-7rem)] border-red-500">{...calcBlocks}</div>
             <form onSubmit={handleSubmit}>
                 <input
                     id={"expressionField"}
