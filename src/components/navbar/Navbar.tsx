@@ -26,7 +26,7 @@ export default function Navbar({
     };
 
     return (
-        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between bg-truegray-600 text-truegray-50">
+        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-truegray-400 bg-truegray-600 text-truegray-50">
             <div>
                 <NavbarButton
                     icon={<IconCalculator />}
