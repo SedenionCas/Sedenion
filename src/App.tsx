@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import Watermark from "./components/watermark/Watermark";
 import Modal from "./components/modals/modal";
 import SettingsModal from "./components/modals/settingsModal/settingsModal";
+import Header from "./components/header";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -23,6 +24,7 @@ const Component = ({ dockviewApi }: IComponentProps) => {
             tabComponents={{}}
             onReady={onReady}
             watermarkComponent={Watermark}
+            defaultTabComponent={Header}
         />
     );
 };
