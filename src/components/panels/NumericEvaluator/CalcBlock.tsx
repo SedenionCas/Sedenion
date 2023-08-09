@@ -5,7 +5,7 @@ interface CompletedProps {
 
 export default function CalcBlock({ expression, solution }: CompletedProps) {
     return (
-        <div className="m-5 w-[calc(100%-2*1.25rem)] overflow-x-auto bg-truegray-600 p-3">
+        <div className="] m-5 my-2 w-[calc(100%-2*1.25rem)] overflow-x-auto rounded-sm bg-truegray-600 p-3 first:mt-5 first:rounded-t-md last:mb-[calc(100vh-14.25rem)]">
             <p className="text-lg text-truegray-50">{expression}</p>
             <p className="text-lg text-truegray-50">{solution}</p>
         </div>

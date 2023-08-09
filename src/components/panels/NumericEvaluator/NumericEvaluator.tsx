@@ -17,13 +17,15 @@ export default function NumericEvaluator() {
     };
 
     return (
-        <div>
-            <div className="overflow-y-auto max-h-[calc(100vh-7rem)]">{...calcBlocks}</div>
+        <div className="overflow-y-auto">
+            <div className="h-[calc(100vh-10rem)]">{...calcBlocks}</div>
             <form onSubmit={handleSubmit}>
-                <input
-                    id={"expressionField"}
-                    className="absolute bottom-4 m-5 mr-10 h-10 w-[calc(100%-2*1.25rem)] border-none bg-truegray-700 px-2 text-lg text-truegray-50 focus:outline-none"
-                />
+                <div className="absolute bottom-0 flex h-20 w-full items-center justify-center bg-gradient-to-t from-truegray-500 to-transparent ">
+                    <input
+                        id={"expressionField"}
+                        className="h-10 w-[calc(100%-2*1.25rem)] rounded-md border border-truegray-400 px-3 bg-truegray-700 text-lg text-truegray-50 focus:outline-none"
+                    />
+                </div>
             </form>
         </div>
     );
