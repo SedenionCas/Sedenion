@@ -1,11 +1,9 @@
 interface AppState {
     calculatorIndex: number;
-    excalidrawIndex: number
 }
 
 let appState: AppState = {
-    calculatorIndex: 1,
-    excalidrawIndex: 1,
+    calculatorIndex: 0,
 };
 
 export function getAppState(): AppState {

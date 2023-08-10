@@ -1,4 +1,4 @@
-import { IconCalculator, IconPencilBolt, IconSettings } from "@tabler/icons-react";
+import { IconCalculator, IconSettings } from "@tabler/icons-react";
 import NavbarButton from "./NavbarButton";
 import type { MutableRefObject } from "react";
 import type { DockviewApi } from "dockview";
@@ -24,17 +24,6 @@ export default function Navbar({
         state.calculatorIndex++;
         setAppState(state);
     };
-    const spawnExcalidraw = () => {
-        if (dockviewApi.current === null) return;
-        const state = getAppState();
-        dockviewApi.current.addPanel({
-            id: "Excalidraw " + state.excalidrawIndex,
-            component: "excalidraw",
-        });
-
-        state.excalidrawIndex++;
-        setAppState(state);
-    };
 
     return (
         <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-truegray-400 bg-truegray-600 text-truegray-50">
@@ -43,11 +32,6 @@ export default function Navbar({
                     icon={<IconCalculator />}
                     title="calculator"
                     onClick={spawnCalculator}
-                />
-                <NavbarButton
-                    icon={<IconPencilBolt />}
-                    title="Excalidraw"
-                    onClick={spawnExcalidraw}
                 />
             </div>
             <div>
