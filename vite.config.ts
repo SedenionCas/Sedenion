@@ -9,4 +9,7 @@ export default defineConfig({
         assetsDir: "public",
         target: "esnext",
     },
+    define: {
+        global: {}
+    }
 });
