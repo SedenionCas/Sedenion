@@ -11,17 +11,19 @@ export default function NumericEvaluator() {
     const handleCalculation = () => {
         setCalcBlocks([
             ...calcBlocks,
-            <CalcBlock expression={inputText} solution={evaluate(inputText)} />,
-
-        ])
+            <CalcBlock
+                expression={inputLatex}
+                solution={evaluate(inputText)}
+            />,
+        ]);
     };
 
     return (
         <div className="overflow-y-auto">
-            <div className="h-[calc(100vh-10rem)]">
+            <div className="h-[calc(100vh-5rem)]">
                 {...calcBlocks}
 
-                <div className="flex w-full justify-center">
+                <div className="mt-5 flex w-full justify-center">
                     <MathBlock
                         latex={inputLatex}
                         setLatex={setInputLatex}
