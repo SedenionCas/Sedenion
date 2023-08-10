@@ -1,10 +1,4 @@
 {
-    "@excalidraw/excalidraw@0.15.2": {
-        "licenses": "MIT",
-        "repository": "https://github.com/excalidraw/excalidraw",
-        "licenseUrl": "https://github.com/excalidraw/excalidraw",
-        "parents": "sedenion"
-    },
     "@tabler/icons-react@2.29.0": {
         "licenses": "MIT",
         "repository": "https://github.com/tabler/tabler-icons",
