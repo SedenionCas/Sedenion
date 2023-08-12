@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import RenderWhenVisible from "../../util/RenderWhenVisible";
 
 type LazySuspenseProps = {
     children: JSX.Element;
@@ -46,10 +47,10 @@ export default function PanelBuilder() {
                 <LazyNumericEvaluator />
             </LazySuspense>
         ),
-        excalidraw: () => (
+        excalidraw: RenderWhenVisible(() => (
             <LazySuspense>
                 <LazyExcalidraw />
             </LazySuspense>
-        ),
+        )),
     };
 }
