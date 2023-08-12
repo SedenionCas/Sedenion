@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CalcBlock from "./CalcBlock";
 import { evaluate } from "sedenion_engine";
 import MathBlock from "../../MathBlock";
