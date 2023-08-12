@@ -1,4 +1,3 @@
-import NumericEvaluator from "./NumericEvaluator/NumericEvaluator";
 import React, { Suspense } from "react";
 import RenderWhenVisible from "../../util/RenderWhenVisible";
 
