@@ -8,6 +8,7 @@ import Watermark from "./components/watermark/Watermark";
 import Modal from "./components/modals/modal";
 import SettingsModal from "./components/modals/settingsModal/settingsModal";
 import Header from "./components/header";
+import { getAppState, setAppState } from "./store";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -15,7 +16,10 @@ interface IComponentProps {
 
 const Component = ({ dockviewApi }: IComponentProps) => {
     const onReady = (event: DockviewReadyEvent) => {
+        const state = getAppState();
         dockviewApi.current = event.api;
+        state.api = event.api;
+        setAppState(state);
     };
 
     return (
