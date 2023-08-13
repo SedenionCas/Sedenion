@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CalcBlock from "./CalcBlock";
 import { evaluate } from "sedenion_engine";
+import MathBlock from "../../MathBlock";
 
 export default function NumericEvaluator() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const [inputLatex, setInputLatex] = useState("");
+    const [inputText, setInputText] = useState("");
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const target: any = event.target;
-        const value = target.expressionField.value;
+    const handleCalculation = () => {
         setCalcBlocks([
             ...calcBlocks,
-            <CalcBlock expression={value} solution={evaluate(value)} />,
+            <CalcBlock
+                expression={inputLatex}
+                solution={evaluate(inputText)}
+            />,
         ]);
     };
 
     return (
-        <div>
-            <div className="overflow-y-scroll max-h-[calc(100vh-7rem)] border-red-500">{...calcBlocks}</div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    id={"expressionField"}
-                    className="absolute bottom-4 m-5 mr-10 h-10 w-[calc(100%-2*1.25rem)] border-none bg-truegray-700 px-2 text-lg text-truegray-50 focus:outline-none"
-                />
-            </form>
+        <div className="overflow-y-auto">
+            <div className="h-[calc(100vh-5rem)]">
+                {...calcBlocks}
+
+                <div className="mt-5 flex w-full justify-center">
+                    <MathBlock
+                        latex={inputLatex}
+                        setLatex={setInputLatex}
+                        setText={setInputText}
+                        evaluate={handleCalculation}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

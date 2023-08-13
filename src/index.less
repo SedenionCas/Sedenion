@@ -124,3 +124,35 @@ body {
             0 0 0 calc(0.375rem * 4) var(--truegray-800);
     }
 }
+
+.excalidraw-theme .excalidraw.excalidraw-container {
+    --color-primary: #2563eb;
+    --color-primary-darker: #1d4ed8;
+    --color-primary-darkest: #1e40af;
+    --color-primary-light: #60a5fa;
+    --sidebar-bg-color: var(--truegray-600);
+    --island-bg-color: var(--truegray-600);
+
+    --sidebar-border-color: var(--truegray-400);
+    --default-border-color: var(--truegray-400);
+    --dialog-border-color: var(--truegray-400);
+
+    --theme-filter: none;
+}
+
+.mq-math-mode {
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
+
+    width: calc(100% - 2 * 1.25rem);
+}
+
+.mq-editable-field.mq-focused,
+.mq-math-mode .mq-editable-field.mq-focused {
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
+
+    box-shadow: none;
+}
+
+.mq-editable-field.mq-focused .mq-cursor {
+    @apply border-l-truegray-100 !important;
+}
