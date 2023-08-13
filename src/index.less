@@ -141,7 +141,7 @@ body {
 }
 
 .mq-math-mode {
-    @apply rounded-md border border-truegray-400 p-3 text-truegray-100 bg-truegray-700;
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
 
     width: calc(100% - 2 * 1.25rem);
 }
@@ -153,6 +153,6 @@ body {
     box-shadow: none;
 }
 
-.mq-editable-field .mq-cursor {
-    @apply border-l-truegray-100;
+.mq-editable-field.mq-focused .mq-cursor {
+    @apply border-l-truegray-100 !important;
 }
