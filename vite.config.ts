@@ -8,8 +8,5 @@ export default defineConfig({
     build: {
         assetsDir: "public",
         target: "esnext",
-    },
-    define: {
-        global: {}
     }
 });
