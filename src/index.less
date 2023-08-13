@@ -139,3 +139,20 @@ body {
 
     --theme-filter: none;
 }
+
+.mq-math-mode {
+    @apply rounded-md border border-truegray-400 p-3 text-truegray-100 bg-truegray-700;
+
+    width: calc(100% - 2 * 1.25rem);
+}
+
+.mq-editable-field.mq-focused,
+.mq-math-mode .mq-editable-field.mq-focused {
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
+
+    box-shadow: none;
+}
+
+.mq-editable-field .mq-cursor {
+    @apply border-l-truegray-100;
+}

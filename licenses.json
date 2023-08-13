@@ -17,6 +17,12 @@
         "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
         "parents": "sedenion"
     },
+    "react-mathquill@1.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/viktorstrate/react-mathquill",
+        "licenseUrl": "https://github.com/viktorstrate/react-mathquill/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
     "react-query@3.39.3": {
         "licenses": "MIT",
         "repository": "https://github.com/tannerlinsley/react-query",
