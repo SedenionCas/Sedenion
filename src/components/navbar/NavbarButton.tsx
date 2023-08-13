@@ -13,7 +13,7 @@ export default function NavbarButton({
 }: INavbarButtonProps) {
     return (
         <div
-            className="group relative my-2 flex h-12 w-12 items-center justify-center rounded-md bg-truegray-700 text-blue-600  shadow-md transition-all duration-150 ease-linear hover:cursor-pointer hover:rounded-xl hover:text-truegray-50"
+            className={`plausible-event-name=Navbar+${title} group relative my-2 flex h-12 w-12 items-center justify-center rounded-md bg-truegray-700 text-blue-600  shadow-md transition-all duration-150 ease-linear hover:cursor-pointer hover:rounded-xl hover:text-truegray-50`}
             onClick={onClick}
         >
             {icon}
