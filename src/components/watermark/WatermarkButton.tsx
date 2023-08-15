@@ -1,4 +1,5 @@
 import React from "react";
+import { getAppState } from "../../store";
 
 interface IWatermarkButtonProps {
     title: string;
@@ -12,8 +13,21 @@ export default function WatermarkButton({
     title,
     onClick,
 }: IWatermarkButtonProps) {
+    const handleClick = () => {
+        const { trackEvent } = getAppState();
+
+        trackEvent(title, {
+            props: {
+                variation: "Navbar",
+            },
+        });
+
+        onClick ? onClick() : null;
+    }
+
     return (
         <div
+            onClick={handleClick}
             className="m-3 flex h-24 w-24 flex-col items-center justify-center rounded-md bg-truegray-600 text-blue-600 shadow-md transition-all duration-150 ease-linear hover:cursor-pointer hover:rounded-xl hover:bg-truegray-700"
         >
             <Icon className="h-10 w-10" />
