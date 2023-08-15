@@ -18,7 +18,7 @@ export default function WatermarkButton({
 
         trackEvent(title, {
             props: {
-                variation: "Navbar",
+                variation: "Watermark",
             },
         });
 
