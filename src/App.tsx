@@ -9,6 +9,7 @@ import Modal from "./components/modals/modal";
 import SettingsModal from "./components/modals/settingsModal/settingsModal";
 import Header from "./components/header";
 import { getAppState, setAppState } from "./store";
+import PrivacyPolicyModal from "./components/modals/privacyPolicy/PrivacyPolicyModal";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -36,6 +37,8 @@ const Component = ({ dockviewApi }: IComponentProps) => {
 export default function App() {
     const dockviewApiRef = useRef<DockviewApi | null>(null);
     const [showSettingsModal, setShowSettingsModal] = useState(false);
+    const [showPrivacyModal, setShowPrivacyModal] = useState(true);
+
     return (
         <div className="dockview-theme-dark ml-16">
             <Modal
@@ -43,6 +46,13 @@ export default function App() {
                 setShowModal={setShowSettingsModal}
             >
                 <SettingsModal />
+            </Modal>
+            <Modal
+                showModal={showPrivacyModal}
+                setShowModal={setShowPrivacyModal}
+                noClose
+            >
+                <PrivacyPolicyModal setShowModal={setShowPrivacyModal} />
             </Modal>
             <Navbar
                 dockviewApi={dockviewApiRef}
