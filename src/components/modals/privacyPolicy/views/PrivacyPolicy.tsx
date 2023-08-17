@@ -13,7 +13,11 @@ export default function PrivacyPolicy() {
             .then((text) => setPolicy(text))
             /// Failed to load privacy policy:
             /// <codeblock of the error>
-            .catch((err) => setPolicy(`Failed to load privacy policy:\n\`\`\`\n${err}\n\`\`\``))
+            .catch((err) =>
+                setPolicy(
+                    `Failed to load privacy policy:\n\`\`\`\n${err}\n\`\`\``
+                )
+            );
     });
 
     return <ReactMarkdown className="">{policy}</ReactMarkdown>;

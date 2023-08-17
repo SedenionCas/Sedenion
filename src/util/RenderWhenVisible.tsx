@@ -3,7 +3,7 @@ import React, { type FunctionComponent } from "react";
 import { useEffect, useState } from "react";
 
 export default function RenderWhenVisible(
-    children: FunctionComponent<IDockviewPanelProps>,
+    children: FunctionComponent<IDockviewPanelProps>
 ) {
     const HigherOrderComponent = (props: IDockviewPanelProps) => {
         const [visible, setVisible] = useState<boolean>(props.api.isVisible);

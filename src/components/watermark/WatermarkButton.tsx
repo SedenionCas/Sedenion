@@ -23,7 +23,7 @@ export default function WatermarkButton({
         });
 
         onClick ? onClick() : null;
-    }
+    };
 
     return (
         <div

@@ -55,7 +55,9 @@ export default function SettingsModal() {
             <div className="h-full w-1/4 border-r border-truegray-400 p-3">
                 {viewButtons}
             </div>
-            <div className="h-full w-3/4 px-12 pt-8 overflow-x-">{viewComponent}</div>
+            <div className="overflow-x- h-full w-3/4 px-12 pt-8">
+                {viewComponent}
+            </div>
         </div>
     );
 }

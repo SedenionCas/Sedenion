@@ -34,9 +34,9 @@ Before you start contributing, here are some steps to help you get started:
 
 To maintain consistency and readability, please follow these code guidelines when contributing to Sedenion Engine:
 
-- Adhere to the existing code formatting and style by running `npm run format` before committing.
-- Use meaningful variable and function names to enhance code readability.
-- Write unit tests for new features or bug fixes.
+-   Adhere to the existing code formatting and style by running `npm run format` before committing.
+-   Use meaningful variable and function names to enhance code readability.
+-   Write unit tests for new features or bug fixes.
 
 We also request that your commit messages follow the angular commit message style excluding scope. More info [here](https://gist.github.com/brianclements/841ea7bffdb01346392c).
 
