@@ -1,5 +1,4 @@
 import React, { Suspense, useState, type FormEvent } from "react";
-import "./PrivacyPolicy.less";
 import Button from "@/components/Button";
 import Checkbox from "@/components/Checkbox";
 
@@ -35,7 +34,7 @@ export default function PrivacyPolicyModal({
     };
 
     return (
-        <article className="privacy-policy overflow-y-auto px-12">
+        <article className="markdown overflow-y-auto px-12">
             <h1>Important notice!</h1>
             <p>
                 To continue using this app please read and accept our{" "}
