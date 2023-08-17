@@ -50,7 +50,8 @@ export default function PrivacyPolicyModal({
 
             <form onSubmit={handleSubmit}>
                 <Checkbox id="privacy" className="mb-4">
-                    I have read and accepted the privacy policy.
+                    I confirm that I have read and agreed to the privacy policy,
+                    and that I am at least 13 years of age or older.
                 </Checkbox>
                 <Button submit>Continue</Button>
             </form>
