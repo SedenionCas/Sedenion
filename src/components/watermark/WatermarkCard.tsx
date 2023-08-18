@@ -8,7 +8,7 @@ type WatermarkCardProps = {
 function WatermarkCard({ title, children }: WatermarkCardProps) {
     return (
         <div className="markdown col-span-1 h-72 overflow-x-clip rounded-md border border-truegray-400 bg-truegray-700 pl-3 shadow-lg">
-            <div className="overflow-y-auto h-full pr-2">
+            <div className="h-full overflow-y-auto pr-2">
                 <h1>{title}</h1>
                 {children}
             </div>

@@ -2,12 +2,14 @@ import React from "react";
 import { Suspense } from "react";
 
 function PrivacyPolicy() {
-    const LazyPrivacy = React.lazy(() => import("@/components/modals/privacyPolicy/views/PrivacyPolicy"));
+    const LazyPrivacy = React.lazy(
+        () => import("@/components/modals/privacyPolicy/views/PrivacyPolicy")
+    );
     return (
         <div className="markdown">
-        <Suspense>
-            <LazyPrivacy />
-        </Suspense>
+            <Suspense>
+                <LazyPrivacy />
+            </Suspense>
         </div>
     );
 }
