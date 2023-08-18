@@ -1,4 +1,8 @@
-import { IconCalculator, IconPencilBolt, IconSettings } from "@tabler/icons-react";
+import {
+    IconCalculator,
+    IconPencilBolt,
+    IconSettings,
+} from "@tabler/icons-react";
 import NavbarButton from "./NavbarButton";
 import type { MutableRefObject } from "react";
 import type { DockviewApi } from "dockview";

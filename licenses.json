@@ -17,10 +17,22 @@
         "licenseUrl": "https://github.com/mathuo/dockview/raw/master/LICENSE",
         "parents": "sedenion"
     },
+    "plausible-tracker@0.3.8": {
+        "licenses": "MIT",
+        "repository": "https://github.com/plausible/plausible-tracker",
+        "licenseUrl": "https://github.com/plausible/plausible-tracker/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
     "react-dom@18.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/facebook/react",
         "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
+    "react-markdown@8.0.7": {
+        "licenses": "MIT",
+        "repository": "https://github.com/remarkjs/react-markdown",
+        "licenseUrl": "https://github.com/remarkjs/react-markdown/raw/master/license",
         "parents": "sedenion"
     },
     "react-mathquill@1.0.3": {

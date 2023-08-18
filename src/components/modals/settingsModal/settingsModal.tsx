@@ -5,6 +5,7 @@ import {
     type SetStateAction,
 } from "react";
 import About from "./views/about";
+import PrivacyPolicy from "./views/PrivacyPolicy";
 
 interface View {
     name: string;
@@ -17,7 +18,7 @@ interface SettingViewButtonProps {
     setActive: Dispatch<SetStateAction<string>>;
 }
 
-const VIEWS: View[] = [{ name: "About", component: <About /> }];
+const VIEWS: View[] = [{ name: "About", component: <About /> }, {name: "Privacy policy", component: <PrivacyPolicy/>}];
 
 function SettingViewButton({
     name,
@@ -44,6 +45,7 @@ export default function SettingsModal() {
         ?.component || <About />;
     const viewButtons = VIEWS.map((view: View) => (
         <SettingViewButton
+            key={view.name}
             active={active}
             name={view.name}
             setActive={setActive}
@@ -55,7 +57,9 @@ export default function SettingsModal() {
             <div className="h-full w-1/4 border-r border-truegray-400 p-3">
                 {viewButtons}
             </div>
-            <div className="h-full w-3/4 px-12 pt-8 overflow-x-">{viewComponent}</div>
+            <div className="overflow-x- h-full w-3/4 px-12 pt-8 overflow-y-auto">
+                {viewComponent}
+            </div>
         </div>
     );
 }

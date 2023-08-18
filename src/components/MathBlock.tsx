@@ -9,7 +9,6 @@ interface MathBlockProps {
     evaluate: () => void;
 }
 
-
 export default function MathBlock({
     latex,
     setLatex,

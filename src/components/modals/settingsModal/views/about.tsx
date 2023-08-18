@@ -23,8 +23,13 @@ export default function About() {
 
     const creditsList = credits.map((credit) => (
         <li key={"credit " + credit.name}>
-            <a className="underline" href={credit.repository}>{credit.name}</a> •{" "}
-            <a className="underline" href={credit.licenseUrl}>{credit.licenses}</a>
+            <a className="underline" href={credit.repository}>
+                {credit.name}
+            </a>{" "}
+            •{" "}
+            <a className="underline" href={credit.licenseUrl}>
+                {credit.licenses}
+            </a>
         </li>
     ));
 
@@ -38,7 +43,7 @@ export default function About() {
             </p>
             <hr className="-mx-1 my-4 border-truegray-400" />
             <h2 className="text-2xl">Open source libraries used</h2>
-            <ul className="list-disc mt-2 ml-6">{creditsList}</ul>
+            <ul className="ml-6 mt-2 list-disc">{creditsList}</ul>
         </div>
     );
 }
