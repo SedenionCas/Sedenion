@@ -7,11 +7,17 @@ export default function PanelBuilder() {
         () => import("./NumericEvaluator/NumericEvaluator")
     );
     const LazyExcalidraw = React.lazy(() => import("./Excalidraw/Excalidraw"));
+    const LazyCas = React.lazy(() => import("./Cas/Cas"));
 
     return {
         basicCalc: () => (
             <LazySuspense>
                 <LazyNumericEvaluator />
+            </LazySuspense>
+        ),
+        cas: () => (
+            <LazySuspense>
+                <LazyCas />
             </LazySuspense>
         ),
         excalidraw: RenderWhenVisible(() => (
