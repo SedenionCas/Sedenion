@@ -5,6 +5,7 @@ import type { PlausibleOptions } from "plausible-tracker/build/main/lib/tracker"
 interface AppState {
     calculatorIndex: number;
     excalidrawIndex: number;
+    casIndex: number;
     api: DockviewApi | null;
     trackEvent: (
         eventName: string,
@@ -15,6 +16,7 @@ interface AppState {
 
 let appState: AppState = {
     calculatorIndex: 1,
+    casIndex: 1,
     excalidrawIndex: 1,
     api: null,
     trackEvent: Plausible({
