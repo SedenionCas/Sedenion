@@ -2,6 +2,7 @@ import {
     IconCalculator,
     IconPencilBolt,
     IconSquare,
+    IconSquareRoot2,
 } from "@tabler/icons-react";
 import WatermarkButton from "./WatermarkButton";
 import "./watermark.css";
@@ -30,6 +31,17 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
         });
 
         state.excalidrawIndex++;
+        setAppState(state);
+    };
+
+    const spawnCas = () => {
+        const state = getAppState();
+        containerApi.addPanel({
+            id: "Cas " + state.casIndex,
+            component: "cas",
+        });
+
+        state.casIndex++;
         setAppState(state);
     };
 
@@ -97,7 +109,11 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
                         title="Calculator"
                         icon={IconCalculator}
                     />
-                    <WatermarkButton title="-" icon={IconSquare} />
+                    <WatermarkButton
+                        onClick={spawnCas}
+                        title="Cas"
+                        icon={IconSquareRoot2}
+                    />
                     <WatermarkButton
                         onClick={spawnExcalidraw}
                         title="Excalidraw"
