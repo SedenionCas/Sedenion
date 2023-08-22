@@ -2,6 +2,7 @@ import {
     IconCalculator,
     IconPencilBolt,
     IconSettings,
+    IconSquareRoot2,
 } from "@tabler/icons-react";
 import NavbarButton from "./NavbarButton";
 import type { MutableRefObject } from "react";
@@ -41,6 +42,18 @@ export default function Navbar({
         setAppState(state);
     };
 
+    const spawnCas = () => {
+        if (dockviewApi.current === null) return;
+        const state = getAppState();
+        dockviewApi.current.addPanel({
+            id: "Cas " + state.casIndex,
+            component: "cas",
+        });
+
+        state.casIndex++;
+        setAppState(state);
+    };
+
     return (
         <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-truegray-400 bg-truegray-600 text-truegray-50">
             <div>
@@ -48,6 +61,11 @@ export default function Navbar({
                     icon={<IconCalculator />}
                     title="calculator"
                     onClick={spawnCalculator}
+                />
+                <NavbarButton
+                    icon={<IconSquareRoot2 />}
+                    title="cas"
+                    onClick={spawnCas}
                 />
                 <NavbarButton
                     icon={<IconPencilBolt />}
