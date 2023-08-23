@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CalcBlock from "./CalcBlock";
-import { optimize } from "sedenion_engine";
+import { optimize, optimize_equation } from "sedenion_engine";
 import MathBlock from "../../MathBlock";
 import ErrorBlock from "./ErrorBlock";
 import WarningBlock from "./WarningBlock";
@@ -13,13 +13,23 @@ export default function Cas() {
 
     const handleCalculation = () => {
         try {
-            setCalcBlocks([
-                ...calcBlocks,
-                <CalcBlock
-                    expression={inputLatex}
-                    solution={optimize(inputText)}
-                />,
-            ]);
+            if (inputText.includes("=")) {
+                setCalcBlocks([
+                    ...calcBlocks,
+                    <CalcBlock
+                        expression={inputLatex}
+                        solution={optimize_equation(inputText, "X")}
+                    />,
+                ]);
+            } else {
+                setCalcBlocks([
+                    ...calcBlocks,
+                    <CalcBlock
+                        expression={inputLatex}
+                        solution={optimize(inputText)}
+                    />,
+                ]);
+            }
             setErrorBlock(<></>);
         } catch (err: unknown) {
             console.error(err);
