@@ -21,7 +21,7 @@
         "react-markdown": "^8.0.7",
         "react-mathquill": "^1.0.3",
         "react-query": "^3.39.3",
-        "sedenion_engine": "0.1.4-beta"
+        "sedenion_engine": "0.2.0-beta"
     },
     "devDependencies": {
         "@types/node": "^20.5.0",
