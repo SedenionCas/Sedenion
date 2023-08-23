@@ -5,6 +5,12 @@
         "licenseUrl": "https://github.com/excalidraw/excalidraw",
         "parents": "sedenion"
     },
+    "@hcaptcha/react-hcaptcha@1.8.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/hCaptcha/react-hcaptcha",
+        "licenseUrl": "https://github.com/hCaptcha/react-hcaptcha/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
     "@tabler/icons-react@2.29.0": {
         "licenses": "MIT",
         "repository": "https://github.com/tabler/tabler-icons",
