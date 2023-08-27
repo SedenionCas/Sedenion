@@ -1,10 +1,10 @@
-import React from "react";
 import { getAppState } from "../../store";
+import type { Icon } from "@tabler/icons-react";
 
 interface IWatermarkButtonProps {
     title: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    icon: React.FC<any>;
+    icon: Icon;
     onClick?: () => void;
 }
 
