@@ -47,6 +47,10 @@
         "licenseUrl": "https://github.com/viktorstrate/react-mathquill/raw/master/LICENSE",
         "parents": "sedenion"
     },
+    "react-pluggable@0.4.3": {
+        "licenses": "MIT",
+        "parents": "sedenion"
+    },
     "react-query@3.39.3": {
         "licenses": "MIT",
         "repository": "https://github.com/tannerlinsley/react-query",
