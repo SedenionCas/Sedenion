@@ -29,4 +29,20 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
             },
         ],
     },
+    {
+        name: "Excalidraw",
+        version: "0.15.2",
+        plugin: new ExcalidrawPlugin(),
+        enabledByDefault: true,
+        authors: [
+            {
+                name: "Excalidraw Team",
+                profile: "https://github.com/excalidraw",
+            },
+            {
+                name: "Anto Keinänen",
+                profile: "https://github.com/antoKeinanen",
+            },
+        ],
+    },
 ];
