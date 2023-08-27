@@ -17,4 +17,16 @@ type Author = {
 };
 
 export const PANEL_PLUGINS: PanelPlugin[] = [
+    {
+        name: "Calculator",
+        version: "1.0.0",
+        plugin: new CalculatorPlugin(),
+        enabledByDefault: true,
+        authors: [
+            {
+                name: "Anto Keinänen",
+                profile: "https://github.com/antoKeinanen",
+            },
+        ],
+    },
 ];
