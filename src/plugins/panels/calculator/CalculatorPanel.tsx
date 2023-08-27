@@ -1,10 +1,10 @@
 import { useState } from "react";
-import CalcBlock from "./CalcBlock";
 import { evaluate } from "sedenion_engine";
-import MathBlock from "../../MathBlock";
-import ErrorBlock from "./ErrorBlock";
+import MathBlock from "@/components/MathBlock";
+import CalcBlock from "./components/CalcBlock";
+import ErrorBlock from "./components/ErrorBlock";
 
-export default function NumericEvaluator() {
+function CalculatorPanel() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
     const [errorBlock, setErrorBlock] = useState<JSX.Element>(<></>);
     const [inputLatex, setInputLatex] = useState("");
@@ -44,3 +44,5 @@ export default function NumericEvaluator() {
         </div>
     );
 }
+
+export default CalculatorPanel;

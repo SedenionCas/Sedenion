@@ -18,7 +18,10 @@ interface SettingViewButtonProps {
     setActive: Dispatch<SetStateAction<string>>;
 }
 
-const VIEWS: View[] = [{ name: "About", component: <About /> }, {name: "Privacy policy", component: <PrivacyPolicy/>}];
+const VIEWS: View[] = [
+    { name: "About", component: <About /> },
+    { name: "Privacy policy", component: <PrivacyPolicy /> },
+];
 
 function SettingViewButton({
     name,
@@ -57,7 +60,7 @@ export default function SettingsModal() {
             <div className="h-full w-1/4 border-r border-truegray-400 p-3">
                 {viewButtons}
             </div>
-            <div className="overflow-x- h-full w-3/4 px-12 pt-8 overflow-y-auto">
+            <div className="overflow-x- h-full w-3/4 overflow-y-auto px-12 pt-8">
                 {viewComponent}
             </div>
         </div>

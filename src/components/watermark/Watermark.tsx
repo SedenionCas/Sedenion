@@ -1,9 +1,3 @@
-import {
-    IconCalculator,
-    IconPencilBolt,
-    IconSquare,
-    IconSquareRoot2,
-} from "@tabler/icons-react";
 import WatermarkButton from "./WatermarkButton";
 import "./watermark.css";
 import Logo from "../Logo";
@@ -12,38 +6,39 @@ import type { IWatermarkPanelProps } from "dockview";
 import WatermarkCard from "./WatermarkCard";
 
 export default function Watermark({ containerApi }: IWatermarkPanelProps) {
-    const spawnCalculator = () => {
+    const appState = getAppState();
+
+    const spawn = (name: string) => {
+        if (!(name + "Index" in appState))
+            throw Error(`Invalid panel name: ${name}`);
+
         const state = getAppState();
+        // @ts-expect-error ts(7053) checked above
+        const id = `${name} ${state[name + "Index"]}`;
         containerApi.addPanel({
-            id: "Calculator " + state.calculatorIndex,
-            component: "basicCalc",
+            id,
+            component: name,
         });
 
-        state.calculatorIndex++;
+        // @ts-expect-error ts(7053) checked above
+        state[name + "Index"]++;
         setAppState(state);
     };
 
-    const spawnExcalidraw = () => {
-        const state = getAppState();
-        containerApi.addPanel({
-            id: "Excalidraw " + state.excalidrawIndex,
-            component: "excalidraw",
-        });
+    const buttons = appState.plugins.map((plugin, index) => {
+        if (index > 8) return;
 
-        state.excalidrawIndex++;
-        setAppState(state);
-    };
-
-    const spawnCas = () => {
-        const state = getAppState();
-        containerApi.addPanel({
-            id: "Cas " + state.casIndex,
-            component: "cas",
-        });
-
-        state.casIndex++;
-        setAppState(state);
-    };
+        return (
+            <WatermarkButton
+                key={plugin.name}
+                icon={plugin.icon}
+                title={plugin.name}
+                onClick={() => {
+                    spawn(plugin.name);
+                }}
+            />
+        );
+    });
 
     return (
         <div
@@ -104,24 +99,7 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
                 </div>
 
                 <div className="col-start-4 row-span-3 row-start-2 grid h-fit w-fit grid-cols-2">
-                    <WatermarkButton
-                        onClick={spawnCalculator}
-                        title="Calculator"
-                        icon={IconCalculator}
-                    />
-                    <WatermarkButton
-                        onClick={spawnCas}
-                        title="Cas"
-                        icon={IconSquareRoot2}
-                    />
-                    <WatermarkButton
-                        onClick={spawnExcalidraw}
-                        title="Excalidraw"
-                        icon={IconPencilBolt}
-                    />
-                    <WatermarkButton title="-" icon={IconSquare} />
-                    <WatermarkButton title="-" icon={IconSquare} />
-                    <WatermarkButton title="-" icon={IconSquare} />
+                    {buttons}
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
+import MathBlock from "@/components/MathBlock";
 import { useState } from "react";
-import CalcBlock from "./CalcBlock";
-import { optimize, optimize_equation } from "sedenion_engine";
-import MathBlock from "../../MathBlock";
-import ErrorBlock from "./ErrorBlock";
-import WarningBlock from "./WarningBlock";
+import { optimize_equation, optimize } from "sedenion_engine";
+import CalcBlock from "./components/CalcBlock";
+import ErrorBlock from "./components/ErrorBlock";
+import WarningBlock from "./components/WarningBlock";
 
-export default function Cas() {
+export default function CasPanel() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
     const [errorBlock, setErrorBlock] = useState<JSX.Element>(<></>);
     const [inputLatex, setInputLatex] = useState("");

@@ -1,3 +1,4 @@
+import { getAppState } from "@/store";
 import {
     Excalidraw,
     THEME,
@@ -8,7 +9,6 @@ import type { RestoredDataState } from "@excalidraw/excalidraw/types/data/restor
 import type { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
 import { useEffect, useRef, useState } from "react";
-import { getAppState } from "../../../store";
 
 function loadData(panelId: string): Promise<RestoredDataState> {
     return new Promise((resolve) => {

@@ -1,29 +1,17 @@
-import React from "react";
-import LazySuspense from "../suspense/LazySuspense";
 import RenderWhenVisible from "@/util/RenderWhenVisible";
+import { usePluginStore } from "react-pluggable";
 
 export default function PanelBuilder() {
-    const LazyNumericEvaluator = React.lazy(
-        () => import("./NumericEvaluator/NumericEvaluator")
+    const pluginStore = usePluginStore();
+    const Renderer = pluginStore.executeFunction(
+        "Renderer.getRendererComponent"
     );
-    const LazyExcalidraw = React.lazy(() => import("./Excalidraw/Excalidraw"));
-    const LazyCas = React.lazy(() => import("./Cas/Cas"));
 
     return {
-        basicCalc: () => (
-            <LazySuspense>
-                <LazyNumericEvaluator />
-            </LazySuspense>
-        ),
-        cas: () => (
-            <LazySuspense>
-                <LazyCas />
-            </LazySuspense>
-        ),
-        excalidraw: RenderWhenVisible(() => (
-            <LazySuspense>
-                <LazyExcalidraw />
-            </LazySuspense>
+        Calculator: () => <Renderer placement="Calculator.display" />,
+        Cas: () => <Renderer placement="Cas.display" />,
+        Excalidraw: RenderWhenVisible(() => (
+            <Renderer placement="Excalidraw.display" />
         )),
     };
 }

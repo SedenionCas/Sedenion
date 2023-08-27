@@ -1,8 +1,5 @@
-import type { DockviewReadyEvent, DockviewApi } from "dockview";
 import { DockviewReact } from "dockview";
-import PanelBuilder from "./components/panels/PanelBuilder";
 import Navbar from "./components/navbar/Navbar";
-import type { MutableRefObject } from "react";
 import { useRef, useState } from "react";
 import Watermark from "./components/watermark/Watermark";
 import Modal from "./components/modals/modal";
@@ -10,6 +7,10 @@ import SettingsModal from "./components/modals/settingsModal/settingsModal";
 import Header from "./components/header";
 import { getAppState, setAppState } from "./store";
 import PrivacyPolicyModal from "./components/modals/privacyPolicy/PrivacyPolicyModal";
+import PanelBuilder from "./components/panels/PanelBuilder";
+
+import type { MutableRefObject } from "react";
+import type { DockviewReadyEvent, DockviewApi } from "dockview";
 
 interface IComponentProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
