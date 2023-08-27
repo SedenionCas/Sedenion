@@ -45,4 +45,16 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
             },
         ],
     },
+    {
+        name: "Cas",
+        version: "0.0.1",
+        plugin: new CasPlugin(),
+        enabledByDefault: true,
+        authors: [
+            {
+                name: "Anto Keinänen",
+                profile: "https://github.com/antoKeinanen",
+            },
+        ],
+    },
 ];
