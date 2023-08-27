@@ -1,7 +1,8 @@
 import type IPanelPlugin from "@/types/PanelPlugin";
-import CalculatorPlugin from "./calculator/CalculatorPlugin";
-import ExcalidrawPlugin from "./excalidraw/ExcalidrawPlugin";
-import CasPlugin from "./cas/CasPlugin";
+import CalculatorPlugin from "./panels/calculator/CalculatorPlugin";
+import CasPlugin from "./panels/cas/CasPlugin";
+import ExcalidrawPlugin from "./panels/excalidraw/ExcalidrawPlugin";
+
 
 type PanelPlugin = {
     name: string;

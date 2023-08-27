@@ -4,12 +4,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.less";
 import { PluginProvider, RendererPlugin, createPluginStore } from "react-pluggable";
-import { LoadPanelPlugins } from "./util/PluginLoader.ts";
+import { LoadPanelPlugins } from "./plugins/PluginLoader.ts";
+import { getAppState, setAppState } from "./store.ts";
 
 const pluginStore = createPluginStore();
 pluginStore.install(new RendererPlugin());
 
-LoadPanelPlugins(pluginStore);
+
+const plugins = LoadPanelPlugins(pluginStore);
+const appState = getAppState();
+appState.plugins = plugins;
+setAppState(appState);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

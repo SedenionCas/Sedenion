@@ -6,8 +6,8 @@ export default function PanelBuilder() {
     const Renderer = pluginStore.executeFunction("Renderer.getRendererComponent");
 
     return {
-        basicCalc: () => <Renderer placement="Calculator.display"/>,
-        cas: () => <Renderer placement="CAS.display"/>,
-        excalidraw: RenderWhenVisible(() => <Renderer placement="Excalidraw.display"/>),
+        Calculator: () => <Renderer placement="Calculator.display"/>,
+        Cas: () => <Renderer placement="Cas.display"/>,
+        Excalidraw: RenderWhenVisible(() => <Renderer placement="Excalidraw.display"/>),
     };
 }
