@@ -8,7 +8,8 @@ type PanelPlugin = {
     version: string;
     plugin: IPanelPlugin;
     enabledByDefault: boolean;
-    authors?: Author[];
+    renderWhenVisible?: boolean;
+    authors: Author[];
 };
 
 type Author = {
@@ -34,6 +35,7 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
         version: "0.15.2",
         plugin: new ExcalidrawPlugin(),
         enabledByDefault: true,
+        renderWhenVisible: true,
         authors: [
             {
                 name: "Excalidraw Team",
