@@ -11,7 +11,7 @@
         "licenseUrl": "https://github.com/hCaptcha/react-hcaptcha/raw/master/LICENSE",
         "parents": "sedenion"
     },
-    "@tabler/icons-react@2.29.0": {
+    "@tabler/icons-react@2.32.0": {
         "licenses": "MIT",
         "repository": "https://github.com/tabler/tabler-icons",
         "licenseUrl": "https://github.com/tabler/tabler-icons/raw/master/LICENSE",
@@ -61,6 +61,10 @@
         "licenses": "MIT",
         "repository": "https://github.com/facebook/react",
         "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
+    "sedenion-plugin-types@1.1.0": {
+        "licenses": "ISC",
         "parents": "sedenion"
     },
     "sedenion_engine@0.2.0-beta": {

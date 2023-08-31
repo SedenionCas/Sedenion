@@ -1,11 +1,10 @@
 import LazySuspense from "@/components/suspense/LazySuspense";
 import { IconCalculator } from "@tabler/icons-react";
 import React from "react";
+import { Setting } from "sedenion-plugin-types";
 
 import type { PluginStore } from "react-pluggable";
-import type IPanelPlugin from "@/types/PanelPlugin";
-import type SettingSection from "@/types/Setting";
-import { Setting } from "@/types/Setting";
+import type { IPanelPlugin, SettingSection } from "sedenion-plugin-types";
 
 class CalculatorPlugin implements IPanelPlugin {
     namespace = "Calculator";
@@ -16,9 +15,14 @@ class CalculatorPlugin implements IPanelPlugin {
         {
             name: "Units",
             settings: [
-                new Setting("Angle unit", "Specify the unit of angle", ["deg", "rad"], "deg"),
+                new Setting(
+                    "Angle unit",
+                    "Specify the unit of angle",
+                    ["deg", "rad"],
+                    "deg"
+                ),
             ],
-        }
+        },
     ];
 
     index: number = 1;

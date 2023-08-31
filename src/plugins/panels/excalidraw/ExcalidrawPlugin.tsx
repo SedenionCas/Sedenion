@@ -3,8 +3,7 @@ import { IconPencilBolt } from "@tabler/icons-react";
 import React from "react";
 
 import type { PluginStore } from "react-pluggable";
-import type IPanelPlugin from "@/types/PanelPlugin";
-import type SettingSection from "@/types/Setting";
+import type {IPanelPlugin, SettingSection} from "sedenion-plugin-types";
 
 class ExcalidrawPlugin implements IPanelPlugin {
     namespace = "Excalidraw";
