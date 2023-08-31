@@ -3,7 +3,7 @@ import NumberInput from "@/components/NumberInput";
 import Switch from "@/components/Switch";
 import TextInput from "@/components/TextInput";
 
-import type SettingSection from "@/types/Setting";
+import type { SettingSection } from "sedenion-plugin-types";
 
 type GeneratedTabProps = {
     settingsSections: SettingSection[];

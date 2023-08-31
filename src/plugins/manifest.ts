@@ -1,4 +1,4 @@
-import type IPanelPlugin from "@/types/PanelPlugin";
+import type { IPanelPlugin } from "sedenion-plugin-types";
 import CalculatorPlugin from "./panels/calculator/CalculatorPlugin";
 import CasPlugin from "./panels/cas/CasPlugin";
 import ExcalidrawPlugin from "./panels/excalidraw/ExcalidrawPlugin";
