@@ -1,16 +1,20 @@
 import LazySuspense from "@/components/suspense/LazySuspense";
-import type IPanelPlugin from "@/types/PanelPlugin";
 import { IconPencilBolt } from "@tabler/icons-react";
 import React from "react";
+
 import type { PluginStore } from "react-pluggable";
+import type IPanelPlugin from "@/types/PanelPlugin";
+import type SettingSection from "@/types/Setting";
 
 class ExcalidrawPlugin implements IPanelPlugin {
     namespace = "Excalidraw";
     version = "0.15.2";
     icon = IconPencilBolt;
-
+    
     index: number = 1;
     pluginStore!: PluginStore;
+    
+    settings: SettingSection[] = [];
 
     getPluginName() {
         return `${this.namespace}@${this.version}`;

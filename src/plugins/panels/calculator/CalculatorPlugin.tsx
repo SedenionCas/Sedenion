@@ -1,13 +1,25 @@
 import LazySuspense from "@/components/suspense/LazySuspense";
-import type IPanelPlugin from "@/types/PanelPlugin";
 import { IconCalculator } from "@tabler/icons-react";
 import React from "react";
+
 import type { PluginStore } from "react-pluggable";
+import type IPanelPlugin from "@/types/PanelPlugin";
+import type SettingSection from "@/types/Setting";
+import { Setting } from "@/types/Setting";
 
 class CalculatorPlugin implements IPanelPlugin {
     namespace = "Calculator";
     version = "0.0.0";
     icon = IconCalculator;
+
+    settings: SettingSection[] = [
+        {
+            name: "Units",
+            settings: [
+                new Setting("Angle unit", "Specify the unit of angle", ["deg", "rad"], "deg"),
+            ],
+        }
+    ];
 
     index: number = 1;
     pluginStore!: PluginStore;

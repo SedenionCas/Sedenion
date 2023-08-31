@@ -1,14 +1,18 @@
 import LazySuspense from "@/components/suspense/LazySuspense";
-import type IPanelPlugin from "@/types/PanelPlugin";
 import { IconSquareRoot2 } from "@tabler/icons-react";
 import React from "react";
+
+import type IPanelPlugin from "@/types/PanelPlugin";
+import type SettingSection from "@/types/Setting";
 import type { PluginStore } from "react-pluggable";
 
 class CasPlugin implements IPanelPlugin {
     namespace = "Cas";
     version = "0.0.1";
     icon = IconSquareRoot2;
-
+    
+    settings: SettingSection[] = [];
+    
     index: number = 1;
     pluginStore!: PluginStore;
 
