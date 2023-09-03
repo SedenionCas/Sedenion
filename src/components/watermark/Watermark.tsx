@@ -1,40 +1,32 @@
 import WatermarkButton from "./WatermarkButton";
 import "./watermark.css";
 import Logo from "../Logo";
-import { getAppState, setAppState } from "../../store";
-import type { IWatermarkPanelProps } from "dockview";
 import WatermarkCard from "./WatermarkCard";
 
+import type { IWatermarkPanelProps } from "dockview";
+import type { IPanelPlugin } from "sedenion-plugin-types";
+import { PANEL_PLUGINS } from "@/plugins/manifest";
+
 export default function Watermark({ containerApi }: IWatermarkPanelProps) {
-    const appState = getAppState();
-
-    const spawn = (name: string) => {
-        if (!(name + "Index" in appState))
-            throw Error(`Invalid panel name: ${name}`);
-
-        const state = getAppState();
-        // @ts-expect-error ts(7053) checked above
-        const id = `${name} ${state[name + "Index"]}`;
+    const spawn = (plugin: IPanelPlugin, name: string) => {
+        const id = `${name} ${plugin.getIndex()}`;
         containerApi.addPanel({
             id,
             component: name,
         });
-
-        // @ts-expect-error ts(7053) checked above
-        state[name + "Index"]++;
-        setAppState(state);
+        plugin.incrementIndex();
     };
 
-    const buttons = appState.plugins.map((plugin, index) => {
+    const buttons = PANEL_PLUGINS.map((plugin, index) => {
         if (index > 8) return;
 
         return (
             <WatermarkButton
                 key={plugin.name}
-                icon={plugin.icon}
+                icon={plugin.plugin.icon}
                 title={plugin.name}
                 onClick={() => {
-                    spawn(plugin.name);
+                    spawn(plugin.plugin, plugin.name);
                 }}
             />
         );

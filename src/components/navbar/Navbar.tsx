@@ -1,8 +1,10 @@
 import { IconSettings } from "@tabler/icons-react";
 import NavbarButton from "./NavbarButton";
+import { PANEL_PLUGINS } from "@/plugins/manifest";
+
 import type { MutableRefObject } from "react";
 import type { DockviewApi } from "dockview";
-import { getAppState, setAppState } from "../../store";
+import type { IPanelPlugin } from "sedenion-plugin-types";
 
 interface INavbarProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -13,28 +15,19 @@ export default function Navbar({
     dockviewApi,
     setShowSettingsModal,
 }: INavbarProps) {
-    const appState = getAppState();
-
-    const spawn = (name: string) => {
+    const spawn = (plugin: IPanelPlugin, name: string) => {
         if (dockviewApi.current === null) throw Error("DockviewApi is null");
-        if (!(name + "Index" in appState))
-            throw Error(`Invalid panel name: ${name}`);
 
-        const state = getAppState();
-        // @ts-expect-error ts(7053) checked above
-        const id = `${name} ${state[name + "Index"]}`;
+        const id = `${name} ${plugin.getIndex()}`;
         dockviewApi.current.addPanel({
             id,
             component: name,
         });
-
-        // @ts-expect-error ts(7053) checked above
-        state[name + "Index"]++;
-        setAppState(state);
+        plugin.incrementIndex()
     };
 
-    const buttons = appState.plugins.map((plugin) => {
-        const Icon = plugin.icon;
+    const buttons = PANEL_PLUGINS.map((plugin) => {
+        const Icon = plugin.plugin.icon;
         return (
             <NavbarButton
                 key={plugin.name}
@@ -42,7 +35,7 @@ export default function Navbar({
                 title={plugin.name}
                 onClick={() => {
                     console.log(`Spawning ${plugin.name}`);
-                    spawn(plugin.name);
+                    spawn(plugin.plugin, plugin.name);
                 }}
             />
         );
