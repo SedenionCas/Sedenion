@@ -5,7 +5,6 @@ import RenderWhenVisible from "@/util/RenderWhenVisible";
 
 import type { IDockviewPanelProps } from "dockview";
 
-
 type PanelBuilderDict = {
     [key: string]:
         | (() => React.JSX.Element)
@@ -20,17 +19,16 @@ export default function PanelBuilder() {
         "Renderer.getRendererComponent"
     );
 
-    const panels = PANEL_PLUGINS.reduce((acc, plugin) => {
-        console.log(plugin.plugin.namespace);
+    return PANEL_PLUGINS.reduce((acc, plugin) => {
         if (plugin.renderWhenVisible) {
-            acc[plugin.name] = RenderWhenVisible(() => <Renderer placement={`${plugin.name}.display`} />);
+            acc[plugin.name] = RenderWhenVisible(() => (
+                <Renderer placement={`${plugin.plugin.namespace}.display`} />
+            ));
         } else {
-            acc[plugin.name] = () => <Renderer placement={`${plugin.name}.display`} />;
+            acc[plugin.name] = () => (
+                <Renderer placement={`${plugin.plugin.namespace}.display`} />
+            );
         }
         return acc;
     }, {} as PanelBuilderDict);
-
-    console.log(panels);
-
-    return panels;
 }
