@@ -19,6 +19,7 @@ export default {
                 },
                 "surface-1": "#1a1a1a",
                 "surface-2": "#141414",
+                "surface-3": "#0d0d0d",
                 "primary-light": "#3b82f6",
                 "primary": "#2563eb",
                 "primary-dark": "#1d4ed8",
