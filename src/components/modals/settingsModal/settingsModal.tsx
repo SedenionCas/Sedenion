@@ -4,6 +4,7 @@ import PrivacyPolicy from "./views/PrivacyPolicy";
 import { PANEL_PLUGINS } from "@/plugins/manifest";
 import GeneratedTab from "./views/GeneratedTab";
 import Plugins from "./views/plugins/Plugins";
+import { getAppState } from "@/store";
 
 type Tab = {
     name: string;
@@ -56,6 +57,8 @@ export default function SettingsModal() {
         let buttons;
         if (group.tabKind === TabKind.CorePlugins) {
             buttons = PANEL_PLUGINS.map((plugin) => {
+                const appState = getAppState();
+                if (!appState.enabledPlugins.has(plugin.name)) return <></>;
                 if (plugin.plugin.settings.length === 0) return <></>;
                 return (
                     <button
