@@ -5,6 +5,7 @@ import { PANEL_PLUGINS } from "@/plugins/manifest";
 import type { MutableRefObject } from "react";
 import type { DockviewApi } from "dockview";
 import type { IPanelPlugin } from "sedenion-plugin-types";
+import { getAppState } from "@/store";
 
 interface INavbarProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -27,6 +28,9 @@ export default function Navbar({
     };
 
     const buttons = PANEL_PLUGINS.map((plugin) => {
+        const appState = getAppState();
+        if (!appState.enabledPlugins.has(plugin.name) || !plugin.enabledByDefault) return;
+
         const Icon = plugin.plugin.icon;
         return (
             <NavbarButton

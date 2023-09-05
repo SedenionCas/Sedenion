@@ -6,6 +6,7 @@ import WatermarkCard from "./WatermarkCard";
 import type { IWatermarkPanelProps } from "dockview";
 import type { IPanelPlugin } from "sedenion-plugin-types";
 import { PANEL_PLUGINS } from "@/plugins/manifest";
+import { getAppState } from "@/store";
 
 export default function Watermark({ containerApi }: IWatermarkPanelProps) {
     const spawn = (plugin: IPanelPlugin, name: string) => {
@@ -19,6 +20,8 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
 
     const buttons = PANEL_PLUGINS.map((plugin, index) => {
         if (index > 8) return;
+        const appState = getAppState();
+        if (!appState.enabledPlugins.has(plugin.name) || !plugin.enabledByDefault) return;
 
         return (
             <WatermarkButton

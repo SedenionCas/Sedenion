@@ -6,6 +6,7 @@ import Plausible, { type EventOptions } from "plausible-tracker";
 interface AppState {
     api: DockviewApi | null;
     plugins: { name: string; icon: Icon }[];
+    enabledPlugins: Set<string>;
     trackEvent: (
         eventName: string,
         options?: EventOptions,
@@ -13,9 +14,11 @@ interface AppState {
     ) => void;
 }
 
+
 let appState: AppState = {
     plugins: [],
     api: null,
+    enabledPlugins: new Set(["Calculator", "Excalidraw", "Cas"]),
     trackEvent: Plausible({
         domain: "sedenion.net",
     }).trackEvent,
