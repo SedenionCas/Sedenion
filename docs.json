@@ -5,6 +5,15 @@
     "logoDark": "/public/LogoS.png",
     "sidebar": [
         ["Getting Started", "/"],
-        ["Calculator", [["Operations", "/calculator/operations"]]]
+        ["Calculator", [["Operations", "/calculator/operations"]]],
+        [
+            "Plugin Developers",
+            [
+                ["Getting Started", "/plugindev/getting-started"],
+                ["Events", "/plugindev/events"],
+                ["Tips", "/plugindev/tips"],
+                ["Publishing", "/plugindev/publishing"]
+            ]
+        ]
     ]
 }
