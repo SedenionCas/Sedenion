@@ -1,6 +1,7 @@
 import { PANEL_PLUGINS } from "@/plugins/manifest";
 import PluginCard from "./PluginCard";
 import { getAppState, setAppState } from "@/store";
+import WarningBlock from "@/components/WarningBlock";
 
 function Plugins() {
     const setEnabled = (name: string) => {
@@ -33,9 +34,23 @@ function Plugins() {
     ));
 
     return (
-        <div className="grid grid-cols-3 gap-x-4 gap-y-2 overflow-y-auto">
-            {pluginCards}
-        </div>
+        <>
+            <WarningBlock>
+                <h1 className="text-lg text-truegray-50">
+                    Like any other software, plugins can be malicious.
+                </h1>
+                <p className="text-truegray-50">
+                    We require all plugins to be open source and we perform code
+                    reviews on them. But be careful with what you install.
+                </p>
+            </WarningBlock>
+            <p className="text-lg text-truegray-50 my-4">
+                Full reload is required for plugins to take effect.
+            </p>
+            <div className="grid grid-cols-3 gap-x-4 gap-y-2 overflow-y-auto">
+                {pluginCards}
+            </div>
+        </>
     );
 }
 
