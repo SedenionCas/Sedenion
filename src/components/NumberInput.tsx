@@ -17,7 +17,7 @@ function NumberInput({ value, onChange }: NumberInputProps) {
             }}
             value={content}
             type="number"
-            className="number-input appearance-none rounded-primary border border-border bg-truegray-700 px-1 py-0.5 text-text-1 shadow-none ring-0 focus:shadow-none focus:outline-none focus:ring-2 focus:ring-primary"
+            className="number-input appearance-none rounded-primary border border-border bg-surface-2 px-1 py-0.5 text-text-1 shadow-none ring-0 focus:shadow-none focus:outline-none focus:ring-2 focus:ring-primary"
         />
     );
 }
