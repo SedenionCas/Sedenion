@@ -11,13 +11,13 @@ type PluginCardProps = {
 
 function PluginCard({ name, author, authorUrl , version, enabled, onClick }: PluginCardProps) {
     return (
-        <div className="border border-truegray-400 rounded-md p-4 w-52">
-            <h1 className="text-truegray-50">{name}</h1>
-            <div className="flex gap-2 text-truegray-300">
-                <p>{version}</p>
+        <div className="border border-border rounded-primary p-4 w-52">
+            <h1 className="text-text-1 font-bold text-lg">{name}</h1>
+            <div className="flex gap-2 text-text-2">
+                <p className="italic">{version}</p>
                 <a href={authorUrl} className="hover:underline">{author}</a>
             </div>
-            <div className="flex gap-8 mt-2 text-truegray-50">
+            <div className="flex gap-8 mt-2 text-text-1">
                 <p>Enabled</p>
                 <Switch enabled={enabled} onClick={() => {onClick(name)}} />
             </div>

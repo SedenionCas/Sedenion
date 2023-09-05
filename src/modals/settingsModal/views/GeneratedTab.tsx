@@ -50,12 +50,12 @@ function GeneratedTab({ settingsSections }: GeneratedTabProps) {
             }
 
             return (
-                <div className="mb-4 flex flex-grow items-center justify-between border-y border-truegray-400 py-1">
+                <div className="mb-4 flex flex-grow items-center justify-between border-y border-border py-1">
                     <div className="">
-                        <p className="font-bold text-truegray-50">
+                        <p className="font-bold text-text-1">
                             {setting.name}
                         </p>
-                        <p className="text-truegray-200">
+                        <p className="text-text-2">
                             {setting.description}
                         </p>
                     </div>
@@ -66,10 +66,10 @@ function GeneratedTab({ settingsSections }: GeneratedTabProps) {
 
         return (
             <div className="mb-4">
-                <p className="font-bold text-truegray-50 text-xl">
+                <p className="font-bold text-text-2 text-xl">
                     {settingsSection.name}
                 </p>
-                <div className="p-2">
+                <div className="py-2">
                     {sections}
                 </div>
             </div>

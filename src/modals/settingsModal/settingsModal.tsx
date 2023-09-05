@@ -70,7 +70,7 @@ export default function SettingsModal() {
                             )
                         }
                         key={plugin.name}
-                        className="text rounded-md px-2  py-1 text-truegray-200 hover:bg-blue-600 hover:text-truegray-50"
+                        className="text rounded-primary px-2  py-1 text-text-2 hover:bg-blue-600 hover:text-text-1"
                     >
                         {plugin.name}
                     </button>
@@ -81,7 +81,7 @@ export default function SettingsModal() {
                 <button
                     onClick={() => setViewComponent(tab.component)}
                     key={tab.name}
-                    className="text rounded-md px-2  py-1 text-truegray-200 hover:bg-blue-600 hover:text-truegray-50"
+                    className="text rounded-primary px-2  py-1 text-text-2 hover:bg-primary hover:text-text-1"
                 >
                     {tab.name}
                 </button>
@@ -90,7 +90,7 @@ export default function SettingsModal() {
 
         return (
             <div key={group.name} className="mb-4 flex flex-col items-start">
-                <h2 className="mb-2 text-lg font-bold text-truegray-100">
+                <h2 className="mb-2 text-lg font-bold text-text-2">
                     {group.name}
                 </h2>
                 {buttons}
@@ -100,7 +100,7 @@ export default function SettingsModal() {
 
     return (
         <div className="flex h-full">
-            <div className="h-full w-1/4 border-r border-truegray-400 px-3 pt-8">
+            <div className="h-full w-1/4 border-r border-border px-3 pt-8">
                 {tabButtonGroups}
             </div>
             <div className="overflow-x- h-full w-3/4 overflow-y-auto px-12 pt-8">
