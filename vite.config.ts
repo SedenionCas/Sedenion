@@ -16,4 +16,9 @@ export default defineConfig({
         assetsDir: "public",
         target: "esnext",
     },
+    server: {
+        fs: {
+            allow: [".."],
+        },
+    },
 });

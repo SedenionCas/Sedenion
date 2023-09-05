@@ -7,7 +7,7 @@ import SettingsModal from "./components/modals/settingsModal/settingsModal";
 import Header from "./components/header";
 import { getAppState, setAppState } from "./store";
 import PrivacyPolicyModal from "./components/modals/privacyPolicy/PrivacyPolicyModal";
-import PanelBuilder from "./components/panels/PanelBuilder";
+import PanelBuilder from "./plugins/PanelBuilder";
 
 import type { MutableRefObject } from "react";
 import type { DockviewReadyEvent, DockviewApi } from "dockview";

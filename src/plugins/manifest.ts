@@ -1,14 +1,16 @@
-import type IPanelPlugin from "@/types/PanelPlugin";
+import type { IPanelPlugin } from "sedenion-plugin-types";
 import CalculatorPlugin from "./panels/calculator/CalculatorPlugin";
 import CasPlugin from "./panels/cas/CasPlugin";
 import ExcalidrawPlugin from "./panels/excalidraw/ExcalidrawPlugin";
+import { COMMUNITY_PANEL_PLUGINS } from "sedenion-plugins";
 
 type PanelPlugin = {
     name: string;
     version: string;
     plugin: IPanelPlugin;
     enabledByDefault: boolean;
-    authors?: Author[];
+    renderWhenVisible?: boolean;
+    authors: Author[];
 };
 
 type Author = {
@@ -34,6 +36,7 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
         version: "0.15.2",
         plugin: new ExcalidrawPlugin(),
         enabledByDefault: true,
+        renderWhenVisible: true,
         authors: [
             {
                 name: "Excalidraw Team",
@@ -57,4 +60,5 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
             },
         ],
     },
+    ...COMMUNITY_PANEL_PLUGINS,
 ];

@@ -1,14 +1,14 @@
-import type { Icon } from "@tabler/icons-react";
+import Plausible from "plausible-tracker";
+
+import type {  EventOptions } from "plausible-tracker";
 import type { DockviewApi } from "dockview";
 import type { PlausibleOptions } from "plausible-tracker/build/main/lib/tracker";
-import Plausible, { type EventOptions } from "plausible-tracker";
+import type { PanelPluginManifest } from "sedenion-plugin-types";
 
 interface AppState {
-    CalculatorIndex: number;
-    ExcalidrawIndex: number;
-    CasIndex: number;
     api: DockviewApi | null;
-    plugins: { name: string; icon: Icon }[];
+    plugins: PanelPluginManifest[];
+    enabledPlugins: Set<string>;
     trackEvent: (
         eventName: string,
         options?: EventOptions,
@@ -16,12 +16,11 @@ interface AppState {
     ) => void;
 }
 
+
 let appState: AppState = {
-    CalculatorIndex: 1,
-    CasIndex: 1,
-    ExcalidrawIndex: 1,
     plugins: [],
     api: null,
+    enabledPlugins: new Set(["Calculator", "Excalidraw", "Cas"]),
     trackEvent: Plausible({
         domain: "sedenion.net",
     }).trackEvent,
