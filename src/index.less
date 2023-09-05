@@ -89,6 +89,10 @@ body {
     border-bottom: var(--truegray-400) solid 1px;
 }
 
+.tab .icon {
+    @apply text-border;
+}
+
 .tab.active-tab {
     &::before {
         position: absolute;
@@ -107,6 +111,11 @@ body {
             inset 0 0 0 1px var(--truegray-400),
             0 0 0 calc(0.375rem * 4) var(--truegray-800);
     }
+
+    .icon {
+        @apply text-primary;
+    }
+
     &::after {
         position: absolute;
         bottom: 0;
