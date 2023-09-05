@@ -2,11 +2,11 @@ import { DockviewReact } from "dockview";
 import Navbar from "./components/navbar/Navbar";
 import { useRef, useState } from "react";
 import Watermark from "./components/watermark/Watermark";
-import Modal from "./components/modals/modal";
-import SettingsModal from "./components/modals/settingsModal/settingsModal";
+import Modal from "./modals/modal";
+import SettingsModal from "./modals/settingsModal/settingsModal";
 import Header from "./components/header";
 import { getAppState, setAppState } from "./store";
-import PrivacyPolicyModal from "./components/modals/privacyPolicy/PrivacyPolicyModal";
+import PrivacyPolicyModal from "./modals/privacyPolicy/PrivacyPolicyModal";
 import PanelBuilder from "./plugins/PanelBuilder";
 
 import type { MutableRefObject } from "react";
