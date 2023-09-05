@@ -16,7 +16,7 @@ function TextInput({ value, onChange }: TextInputProps) {
             }}
             type="text"
             value={content}
-            className="appearance-none rounded-md border border-truegray-400 bg-truegray-700 px-1 py-0.5 text-truegray-100 shadow-none ring-0 focus:border-2 focus:border-blue-500 focus:shadow-none focus:outline-none focus:ring-0"
+            className="appearance-none rounded-primary border border-border bg-surface-2 px-1 py-0.5 text-text-1 shadow-none ring-0 focus:shadow-none focus:outline-none focus:ring-2 focus:ring-primary"
         />
     );
 }
