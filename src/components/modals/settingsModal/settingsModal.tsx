@@ -3,6 +3,7 @@ import About from "./views/about";
 import PrivacyPolicy from "./views/PrivacyPolicy";
 import { PANEL_PLUGINS } from "@/plugins/manifest";
 import GeneratedTab from "./views/GeneratedTab";
+import Plugins from "./views/plugins/Plugins";
 
 type Tab = {
     name: string;
@@ -22,12 +23,16 @@ type TabGroup = {
 
 const TAB_GROUPS: TabGroup[] = [
     {
-        name: "About",
+        name: "Sedenion",
         tabKind: TabKind.Preset,
         tabs: [
             {
                 name: "About",
                 component: <About />,
+            },
+            {
+                name: "Plugins",
+                component: <Plugins/>
             },
             {
                 name: "Privacy Policy",
@@ -36,7 +41,7 @@ const TAB_GROUPS: TabGroup[] = [
         ],
     },
     {
-        name: "Core Plugins",
+        name: "Plugins",
         tabKind: TabKind.CorePlugins,
         tabs: [],
     },

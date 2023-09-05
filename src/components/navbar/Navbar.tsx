@@ -29,7 +29,7 @@ export default function Navbar({
 
     const buttons = PANEL_PLUGINS.map((plugin) => {
         const appState = getAppState();
-        if (!appState.enabledPlugins.has(plugin.name) || !plugin.enabledByDefault) return;
+        if (!appState.enabledPlugins.has(plugin.name)) return;
 
         const Icon = plugin.plugin.icon;
         return (

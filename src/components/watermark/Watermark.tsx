@@ -21,7 +21,7 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
     const buttons = PANEL_PLUGINS.map((plugin, index) => {
         if (index > 8) return;
         const appState = getAppState();
-        if (!appState.enabledPlugins.has(plugin.name) || !plugin.enabledByDefault) return;
+        if (!appState.enabledPlugins.has(plugin.name)) return;
 
         return (
             <WatermarkButton
