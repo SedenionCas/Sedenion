@@ -41,11 +41,6 @@ class CalculatorPlugin implements IPanelPlugin {
     }
 
     activate() {
-        this.pluginStore.addFunction(
-            `${this.namespace}.add`,
-            (a: number, b: number) => a + b
-        );
-
         this.pluginStore.executeFunction(
             "Renderer.add",
             `${this.namespace}.display`,
@@ -54,7 +49,6 @@ class CalculatorPlugin implements IPanelPlugin {
     }
 
     deactivate() {
-        this.pluginStore.removeFunction(`${this.namespace}.add`);
         this.pluginStore.removeFunction(`${this.namespace}.display`);
     }
 
