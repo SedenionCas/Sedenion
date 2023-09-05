@@ -1,12 +1,12 @@
 import WatermarkButton from "./WatermarkButton";
 import "./watermark.css";
-import Logo from "../Logo";
+import Logo from "@/components/Logo";
 import WatermarkCard from "./WatermarkCard";
+import { PANEL_PLUGINS } from "@/plugins/manifest";
+import { getAppState } from "@/store";
 
 import type { IWatermarkPanelProps } from "dockview";
 import type { IPanelPlugin } from "sedenion-plugin-types";
-import { PANEL_PLUGINS } from "@/plugins/manifest";
-import { getAppState } from "@/store";
 
 export default function Watermark({ containerApi }: IWatermarkPanelProps) {
     const spawn = (plugin: IPanelPlugin, name: string) => {
@@ -41,15 +41,14 @@ export default function Watermark({ containerApi }: IWatermarkPanelProps) {
             className="flex h-full w-full items-center justify-center"
         >
             <div className="watermark mx-24 grid grid-cols-4 grid-rows-4">
-                <div className="col-span-1 col-start-4 row-span-1 m-3 mr-12 flex flex-row items-center justify-center rounded-md bg-truegray-600">
+                <div className="col-span-1 col-start-4 row-span-1 m-3 mr-12 flex flex-row items-center justify-center rounded-primary bg-surface-1">
                     <Logo />
-                    <h1 className="-ml-3 select-none text-5xl tracking-tight text-truegray-50">
+                    <h1 className="-ml-3 select-none text-5xl tracking-tight text-text-1">
                         edenion
                     </h1>
                 </div>
-
-                <div className="col-span-3 col-start-1 row-span-4 row-start-1 m-3 rounded-md bg-truegray-600 px-12 pt-8">
-                    <h1 className="select-none text-5xl tracking-tight text-truegray-50">
+                <div className="col-span-3 col-start-1 row-span-4 row-start-1 m-3 rounded-primary bg-surface-1 px-12 pt-8">
+                    <h1 className="select-none text-5xl tracking-tight text-text-1">
                         News
                     </h1>
                     <div className="mt-6 grid grid-cols-2 gap-6">
