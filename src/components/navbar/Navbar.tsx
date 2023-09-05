@@ -23,8 +23,9 @@ export default function Navbar({
         dockviewApi.current.addPanel({
             id,
             component: name,
+            tabComponent: "default",
         });
-        plugin.incrementIndex()
+        plugin.incrementIndex();
     };
 
     const buttons = PANEL_PLUGINS.map((plugin) => {
@@ -46,7 +47,7 @@ export default function Navbar({
     });
 
     return (
-        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-truegray-400 bg-truegray-600 text-truegray-50">
+        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-border bg-surface-1 text-text-1">
             <div>{buttons}</div>
             <div>
                 <NavbarButton
