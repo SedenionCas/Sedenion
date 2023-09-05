@@ -1,11 +1,13 @@
-import type { Icon } from "@tabler/icons-react";
+import Plausible from "plausible-tracker";
+
+import type {  EventOptions } from "plausible-tracker";
 import type { DockviewApi } from "dockview";
 import type { PlausibleOptions } from "plausible-tracker/build/main/lib/tracker";
-import Plausible, { type EventOptions } from "plausible-tracker";
+import type { PanelPluginManifest } from "sedenion-plugin-types";
 
 interface AppState {
     api: DockviewApi | null;
-    plugins: { name: string; icon: Icon }[];
+    plugins: PanelPluginManifest[];
     enabledPlugins: Set<string>;
     trackEvent: (
         eventName: string,
