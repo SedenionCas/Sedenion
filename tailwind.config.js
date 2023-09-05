@@ -19,11 +19,24 @@ export default {
                 },
                 "surface-1": "#1a1a1a",
                 "surface-2": "#141414",
-                "primary": "#0284c7",
+                "primary-light": "#3b82f6",
+                "primary": "#2563eb",
+                "primary-dark": "#1d4ed8",
                 "text-1": "#E8E8E8",
                 "text-2": "#D4D4D4",
-                "edge": "#4D4D4D",
+                "border": "#4D4D4D",
+                "success": "#16a34a",
+                "warning": "#ca8a04",
+                "error": "#dc2626",
+                "info": "#0891b2",
             },
+            borderRadius: {
+                "primary": "0.375rem",
+            },
+            padding: {
+                "xs": "0.5rem",
+                "sm": "1rem",
+            }
         },
     },
 
