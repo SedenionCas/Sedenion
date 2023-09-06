@@ -20,7 +20,8 @@ const appState = getAppState();
 appState.plugins = plugins;
 setAppState(appState);
 
-applyTheme("gruvbox");
+const theme = localStorage.getItem("theme") || "base";
+applyTheme(theme);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

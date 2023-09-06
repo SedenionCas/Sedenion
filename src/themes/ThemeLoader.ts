@@ -2,14 +2,14 @@ import { base, catppuccinMocha, gruvbox, nord, oneLight } from "./BaseThemes";
 
 import type { IMappedTheme, ITheme, IThemes } from "./Theme";
 
-const DEFAULT_THEME = "base";
+const DEFAULT_THEME = "Base";
 
 export const themes: IThemes = {
-    base,
-    catppuccinMocha,
-    oneLight,
-    nord,
-    gruvbox
+    Base: base,
+    Catppuccin: catppuccinMocha,
+    "One Light": oneLight,
+    Nord: nord,
+    Gruvbox: gruvbox,
 };
 
 function mapTheme(theme: ITheme): IMappedTheme {
@@ -35,8 +35,10 @@ export function applyTheme(themeName: string) {
     let themeObject: IMappedTheme;
     if (theme) {
         themeObject = mapTheme(theme);
+        localStorage.setItem("theme", themeName);
     } else {
         themeObject = mapTheme(themes[DEFAULT_THEME]);
+        localStorage.setItem("theme", DEFAULT_THEME);
     }
 
     const root = document.documentElement;

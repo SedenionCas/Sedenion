@@ -5,6 +5,7 @@ import { PANEL_PLUGINS } from "@/plugins/manifest";
 import GeneratedTab from "./views/GeneratedTab";
 import Plugins from "./views/plugins/Plugins";
 import { getAppState } from "@/store";
+import Appearance from "./views/Appearance";
 
 type Tab = {
     name: string;
@@ -32,8 +33,12 @@ const TAB_GROUPS: TabGroup[] = [
                 component: <About />,
             },
             {
+                name: "Appearance",
+                component: <Appearance />,
+            },
+            {
                 name: "Plugins",
-                component: <Plugins/>
+                component: <Plugins />,
             },
             {
                 name: "Privacy Policy",
