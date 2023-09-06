@@ -15,7 +15,7 @@ function TabHeader(props: IDockviewPanelHeaderProps) {
             <div className="tab-content">{props.api.title}</div>
             <button
                 onClick={() => props.api.close()}
-                className="action-container h-5 w-5 items-center justify-center hover:cursor-pointer hover:text-text-2 hover:bg-surface-1 rounded-primary"
+                className="action-container h-5 w-5 items-center justify-center rounded-primary hover:cursor-pointer hover:bg-surface-1 hover:text-text-2"
             >
                 <IconX />
             </button>

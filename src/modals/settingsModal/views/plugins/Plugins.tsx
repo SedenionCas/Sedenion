@@ -35,7 +35,7 @@ function Plugins() {
 
     return (
         <>
-            <Block variant="warning" className="text-text-1 m-0">
+            <Block variant="warning" className="m-0 text-text-1">
                 <h1 className="text-xl">
                     Like any other software, plugins can be malicious.
                 </h1>
@@ -44,7 +44,7 @@ function Plugins() {
                     reviews on them. But be careful with what you install.
                 </p>
             </Block>
-            <p className="text-lg text-text-1 my-4 italic">
+            <p className="my-4 text-lg italic text-text-1">
                 Full reload is required for plugins to take effect.
             </p>
             <div className="grid grid-cols-3 gap-x-4 gap-y-2 overflow-y-auto">

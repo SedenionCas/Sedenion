@@ -79,5 +79,3 @@ export const gruvbox = {
     error: "#cc241d",
     info: "#458588",
 };
-
-

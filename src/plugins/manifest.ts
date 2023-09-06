@@ -69,7 +69,7 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
         authors: [
             {
                 name: "Sedenion Team",
-                profile: "https://github.com/SedenionCas", 
+                profile: "https://github.com/SedenionCas",
             },
         ],
     },

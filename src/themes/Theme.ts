@@ -15,9 +15,9 @@ export interface ITheme {
 }
 
 export interface IThemes {
-    [key: string]: ITheme
+    [key: string]: ITheme;
 }
 
 export interface IMappedTheme {
-    [key: string]: string
+    [key: string]: string;
 }

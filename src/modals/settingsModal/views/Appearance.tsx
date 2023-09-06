@@ -12,7 +12,13 @@ function Appearance() {
                 <p className="text-text-2">Select the theme you want to use.</p>
             </div>
             <div>
-                <Dropdown options={themeOptions} value={active} onChange={(theme) => {applyTheme(theme)}}/>
+                <Dropdown
+                    options={themeOptions}
+                    value={active}
+                    onChange={(theme) => {
+                        applyTheme(theme);
+                    }}
+                />
             </div>
         </div>
     );
