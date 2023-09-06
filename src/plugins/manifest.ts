@@ -3,6 +3,7 @@ import CalculatorPlugin from "./panels/calculator/CalculatorPlugin";
 import CasPlugin from "./panels/cas/CasPlugin";
 import ExcalidrawPlugin from "./panels/excalidraw/ExcalidrawPlugin";
 import { COMMUNITY_PANEL_PLUGINS } from "sedenion-plugins";
+import ThemeTestPlugin from "./panels/themetest/ThemeTestPlugin";
 
 type PanelPlugin = {
     name: string;
@@ -57,6 +58,18 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
             {
                 name: "Anto Keinänen",
                 profile: "https://github.com/antoKeinanen",
+            },
+        ],
+    },
+    {
+        name: "ThemeTest",
+        version: "0.0.0",
+        plugin: new ThemeTestPlugin(),
+        enabledByDefault: false,
+        authors: [
+            {
+                name: "Sedenion Team",
+                profile: "https://github.com/SedenionCas", 
             },
         ],
     },
