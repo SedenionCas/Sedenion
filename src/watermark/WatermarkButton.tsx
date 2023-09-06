@@ -3,7 +3,6 @@ import type { Icon } from "@tabler/icons-react";
 
 interface IWatermarkButtonProps {
     title: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     icon: Icon;
     onClick?: () => void;
 }
