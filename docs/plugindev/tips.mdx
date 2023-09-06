@@ -1,0 +1,9 @@
+## Naming conventions
+
+We require a few conventions to standardize things and to avoid conflicts. These are as follows:
+
+1. Plugin Name: Let's consider a plugin which provides authentication, named as Auth.
+2. Class Name: The name of the class will be your plugin name suffixed with 'Plugin' i.e. AuthPlugin.
+3. getPluginName: When returning the name of the plugin, we add <plugin_name> with @, followed by the version. ex : Auth@1.0.0 (<plugin_name>@).
+4. Adding functions: While functions can be added to pluginStore with any name, to ensure uniqueness across plugins, we recommend the format <plugin_name>.<function_name>. Ex : Auth.authenticate.
+5. Events: Events can be added and dispatched from pluginStore using any name. To show which event belongs to which plugin, we recommend the format <plugin_name>.<event_name> Ex: Auth.checking.

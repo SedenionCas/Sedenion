@@ -1,12 +1,11 @@
-import {
-    IconCalculator,
-    IconPencilBolt,
-    IconSettings,
-} from "@tabler/icons-react";
+import { IconSettings } from "@tabler/icons-react";
 import NavbarButton from "./NavbarButton";
+import { PANEL_PLUGINS } from "@/plugins/manifest";
+
 import type { MutableRefObject } from "react";
 import type { DockviewApi } from "dockview";
-import { getAppState, setAppState } from "../../store";
+import type { IPanelPlugin } from "sedenion-plugin-types";
+import { getAppState } from "@/store";
 
 interface INavbarProps {
     dockviewApi: MutableRefObject<DockviewApi | null>;
@@ -17,44 +16,39 @@ export default function Navbar({
     dockviewApi,
     setShowSettingsModal,
 }: INavbarProps) {
-    const spawnCalculator = () => {
-        if (dockviewApi.current === null) return;
-        const state = getAppState();
-        dockviewApi.current.addPanel({
-            id: "Calculator " + state.calculatorIndex,
-            component: "basicCalc",
-        });
+    const spawn = (plugin: IPanelPlugin, name: string) => {
+        if (dockviewApi.current === null) throw Error("DockviewApi is null");
 
-        state.calculatorIndex++;
-        setAppState(state);
+        const id = `${name} ${plugin.getIndex()}`;
+        dockviewApi.current.addPanel({
+            id,
+            component: name,
+            tabComponent: "default",
+        });
+        plugin.incrementIndex();
     };
 
-    const spawnExcalidraw = () => {
-        if (dockviewApi.current === null) return;
-        const state = getAppState();
-        dockviewApi.current.addPanel({
-            id: "Excalidraw " + state.excalidrawIndex,
-            component: "excalidraw",
-        });
+    const buttons = PANEL_PLUGINS.map((plugin) => {
+        const appState = getAppState();
+        if (!appState.enabledPlugins.has(plugin.name)) return;
 
-        state.excalidrawIndex++;
-        setAppState(state);
-    };
+        const Icon = plugin.plugin.icon;
+        return (
+            <NavbarButton
+                key={plugin.name}
+                icon={<Icon />}
+                title={plugin.name}
+                onClick={() => {
+                    console.log(`Spawning ${plugin.name}`);
+                    spawn(plugin.plugin, plugin.name);
+                }}
+            />
+        );
+    });
 
     return (
-        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-truegray-400 bg-truegray-600 text-truegray-50">
-            <div>
-                <NavbarButton
-                    icon={<IconCalculator />}
-                    title="calculator"
-                    onClick={spawnCalculator}
-                />
-                <NavbarButton
-                    icon={<IconPencilBolt />}
-                    title="excalidraw"
-                    onClick={spawnExcalidraw}
-                />
-            </div>
+        <nav className="fixed left-0 top-0 z-10 flex h-screen w-16 flex-col items-center justify-between border-r border-border bg-surface-1 text-text-1">
+            <div>{buttons}</div>
             <div>
                 <NavbarButton
                     icon={<IconSettings />}
