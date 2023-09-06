@@ -18,7 +18,7 @@ function Block({ children, variant, className }: BlockProps) {
     return (
         <div className={
             cn(
-                "m-5 my-2 rounded-primary border text-text-1 w-full bg-opacity-60 p-3 text-opacity-100",
+                "m-5 my-2 rounded-primary border text-text-1 w-full bg-opacity-0 p-3 text-opacity-100",
                 variants[variant],
                 className
             )
