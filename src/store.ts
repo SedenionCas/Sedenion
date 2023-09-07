@@ -1,14 +1,11 @@
-import Plausible from "plausible-tracker";
-
-import type { EventOptions } from "plausible-tracker";
-import type { DockviewApi } from "dockview";
+import { type DockviewApi } from "dockview";
+import Plausible, { type EventOptions } from "plausible-tracker";
 import type { PlausibleOptions } from "plausible-tracker/build/main/lib/tracker";
-import type { PanelPluginManifest } from "sedenion-plugin-types";
 
 interface AppState {
+    calculatorIndex: number;
+    excalidrawIndex: number;
     api: DockviewApi | null;
-    plugins: PanelPluginManifest[];
-    enabledPlugins: Set<string>;
     trackEvent: (
         eventName: string,
         options?: EventOptions,
@@ -17,9 +14,9 @@ interface AppState {
 }
 
 let appState: AppState = {
-    plugins: [],
+    calculatorIndex: 1,
+    excalidrawIndex: 1,
     api: null,
-    enabledPlugins: new Set(["Calculator", "Excalidraw", "Cas"]),
     trackEvent: Plausible({
         domain: "sedenion.net",
     }).trackEvent,

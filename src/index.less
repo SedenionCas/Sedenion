@@ -5,48 +5,46 @@
 @tailwind utilities;
 
 :root {
-    --surface-1: #1a1a1a;
-    --surface-2: #141414;
-    --surface-3: #0d0d0d;
-    --primary-light: #3b82f6;
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --text-1: #e8e8e8;
-    --text-2: #d4d4d4;
-    --border: #4d4d4d;
-    --success: #16a34a;
-    --warning: #ca8a04;
-    --error: #dc2626;
-    --info: #0891b2;
+    --truegray-50: #e8e8e8;
+    --truegray-100: #d4d4d4;
+    --truegray-200: #a6a6a6;
+    --truegray-300: #7a7a7a;
+    --truegray-400: #4d4d4d;
+    --truegray-500: #212121;
+    --truegray-600: #1a1a1a;
+    --truegray-700: #141414;
+    --truegray-800: #0d0d0d;
+    --truegray-900: #080808;
+    --truegray-950: #030303;
 }
 
 .dockview-theme-dark {
-    --dv-background-color: var(--surface-2);
-    --dv-paneview-active-outline-color: var(--primary);
+    --dv-background-color: var(--truegray-900);
+    --dv-paneview-active-outline-color: #2563eb;
     --dv-drag-over-background-color: color-mix(
         in srgb,
-        var(var(--border)) 20%,
+        var(--truegray-300) 20%,
         transparent
     );
-    --dv-drag-over-border-color: var(--text-1);
-    --dv-tabs-container-scrollbar-color: var(--surface-1);
+    --dv-drag-over-border-color: var(--truegray-50);
+    --dv-tabs-container-scrollbar-color: var(--truegray-200);
     --dv-floating-box-shadow: 8px 8px 8px 0px
-        color-mix(in srgb, var(black) 20%, transparent);
-    --dv-group-view-background-color: var(--surface-3);
-    --dv-tabs-and-actions-container-background-color: var(--surface-2);
-    --dv-activegroup-visiblepanel-tab-background-color: var(--surface-3);
-    --dv-activegroup-hiddenpanel-tab-background-color: var(--surface-2);
-    --dv-inactivegroup-visiblepanel-tab-background-color: var(--surface-3);
-    --dv-inactivegroup-hiddenpanel-tab-background-color: var(--surface-2);
-    --dv-tab-divider-color: var(--surface-2);
-    --dv-activegroup-visiblepanel-tab-color: var(--text-1);
-    --dv-activegroup-hiddenpanel-tab-color: var(--border);
-    --dv-inactivegroup-visiblepanel-tab-color: var(--text-2);
-    --dv-inactivegroup-hiddenpanel-tab-color: var(--border);
-    --dv-separator-border: var(--border);
+        color-mix(in srgb, var(--truegray-800) 20%, transparent);
+    --dv-group-view-background-color: var(--truegray-800);
+    --dv-tabs-and-actions-container-background-color: var(--truegray-700);
+    --dv-activegroup-visiblepanel-tab-background-color: var(--truegray-800);
+    --dv-activegroup-hiddenpanel-tab-background-color: var(--truegray-700);
+    --dv-inactivegroup-visiblepanel-tab-background-color: var(--truegray-800);
+    --dv-inactivegroup-hiddenpanel-tab-background-color: var(--truegray-700);
+    --dv-tab-divider-color: var(--truegray-700);
+    --dv-activegroup-visiblepanel-tab-color: var(--truegray-50);
+    --dv-activegroup-hiddenpanel-tab-color: var(--truegray-400);
+    --dv-inactivegroup-visiblepanel-tab-color: var(--truegray-200);
+    --dv-inactivegroup-hiddenpanel-tab-color: var(--truegray-400);
+    --dv-separator-border: var(--truegray-400);
     --dv-paneview-header-border-color: color-mix(
         in srgb,
-        var(--border) 20%,
+        var(--truegray-400) 20%,
         transparent
     );
 }
@@ -66,7 +64,7 @@ body {
             > .tab.active-tab {
                 border-radius: 0.375rem 0.375rem 0rem 0rem;
                 height: 2.5rem;
-                border: var(--border) solid 1px;
+                border: var(--truegray-400) solid 1px;
                 border-bottom-color: transparent;
             }
             > .tab {
@@ -80,7 +78,7 @@ body {
                 }
                 &:not(.active-tab) {
                     display: inline-block;
-                    border-bottom: var(--border) solid 1px;
+                    border-bottom: var(--truegray-400) solid 1px;
                 }
             }
         }
@@ -88,11 +86,7 @@ body {
 }
 
 .void-container {
-    border-bottom: var(--border) solid 1px;
-}
-
-.tab .icon {
-    @apply text-border;
+    border-bottom: var(--truegray-400) solid 1px;
 }
 
 .tab.active-tab {
@@ -110,14 +104,9 @@ body {
         clip-path: inset(50% calc(0.375rem * -1) 0 50%);
         z-index: 10;
         box-shadow:
-            inset 0 0 0 1px var(--border),
-            0 0 0 calc(0.375rem * 4) var(--surface-3);
+            inset 0 0 0 1px var(--truegray-400),
+            0 0 0 calc(0.375rem * 4) var(--truegray-800);
     }
-
-    .icon {
-        @apply text-primary;
-    }
-
     &::after {
         position: absolute;
         bottom: 0;
@@ -131,50 +120,50 @@ body {
         clip-path: inset(50% 50% 0 calc(0.375rem * -1));
         z-index: 10;
         box-shadow:
-            inset 0 0 0 1px var(--border),
-            0 0 0 calc(0.375rem * 4) var(--surface-3);
+            inset 0 0 0 1px var(--truegray-400),
+            0 0 0 calc(0.375rem * 4) var(--truegray-800);
     }
 }
 
 .excalidraw-theme .excalidraw.excalidraw-container {
-    --color-primary: var(--primary-light);
-    --color-primary-darker: var(--primary);
-    --color-primary-darkest: var(--primary-dark);
-    --color-primary-light: var(var(--primary-light));
-    --sidebar-bg-color: var(--surface-1);
-    --island-bg-color: var(--surface-1);
+    --color-primary: #2563eb;
+    --color-primary-darker: #1d4ed8;
+    --color-primary-darkest: #1e40af;
+    --color-primary-light: #60a5fa;
+    --sidebar-bg-color: var(--truegray-600);
+    --island-bg-color: var(--truegray-600);
 
-    --sidebar-border-color: var(--border);
-    --default-border-color: var(--border);
-    --dialog-border-color: var(--border);
+    --sidebar-border-color: var(--truegray-400);
+    --default-border-color: var(--truegray-400);
+    --dialog-border-color: var(--truegray-400);
 
     --theme-filter: none;
 }
 
 .mq-math-mode {
-    @apply rounded-primary border border-border bg-surface-2 p-3 text-text-1;
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
 
     width: calc(100% - 2 * 1.25rem);
 }
 
 .mq-editable-field.mq-focused,
 .mq-math-mode .mq-editable-field.mq-focused {
-    @apply rounded-primary border border-border bg-surface-2 p-3 text-text-1;
+    @apply rounded-md border border-truegray-400 bg-truegray-700 p-3 text-truegray-100;
 
     box-shadow: none;
 }
 
 .mq-editable-field.mq-focused .mq-cursor {
-    @apply border-l-text-1 !important;
+    @apply border-l-truegray-100 !important;
 }
 
 .markdown {
-    color: var(--text-1);
+    color: var(--truegray-100);
 
     h1 {
         font-size: xx-large;
         margin: 1.5rem 0px;
-        border-bottom: solid 1px var(--border);
+        border-bottom: solid 1px var(--truegray-400);
         font-weight: bold;
     }
 
@@ -205,7 +194,7 @@ body {
     }
 
     a {
-        @apply text-primary;
+        @apply text-blue-500;
         text-decoration: underline;
         cursor: pointer;
     }

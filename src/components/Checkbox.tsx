@@ -14,7 +14,7 @@ function Checkbox({ children, id, name, className, checkRef }: CheckboxProps) {
         <div className={className}>
             <input
                 ref={checkRef}
-                className="mr-3 checked:accent-primary"
+                className="mr-3"
                 type="checkbox"
                 name={name || id}
                 id={id}

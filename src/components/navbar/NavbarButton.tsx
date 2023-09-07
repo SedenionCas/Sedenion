@@ -26,11 +26,11 @@ export default function NavbarButton({
 
     return (
         <div
-            className="group relative my-2 flex h-12 w-12 items-center justify-center rounded-primary bg-surface-2 text-primary shadow-md transition-all duration-150 ease-linear hover:cursor-pointer hover:rounded-xl hover:bg-surface-2 hover:text-text-1"
+            className="group relative my-2 flex h-12 w-12 items-center justify-center rounded-md bg-truegray-700 text-blue-600  shadow-md transition-all duration-150 ease-linear hover:cursor-pointer hover:rounded-xl hover:text-truegray-50"
             onClick={handleClick}
         >
             {icon}
-            <span className="pointer-events-none absolute left-14 m-2 w-auto min-w-max origin-left scale-0 rounded-primary bg-surface-2 p-2 text-text-1 shadow-md transition-all duration-150 ease-linear group-hover:scale-100">
+            <span className="absolute left-14 m-2 w-auto min-w-max origin-left scale-0 rounded-md bg-truegray-700 p-2 text-truegray-50 shadow-md transition-all duration-150 ease-linear group-hover:scale-100">
                 {title}
             </span>
         </div>
