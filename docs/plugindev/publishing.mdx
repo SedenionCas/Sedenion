@@ -1,0 +1,52 @@
+# Publishing
+
+## Checklist
+
+To ensure that your plugin is ready for release, please ensure that you have completed the following checklist:
+
+1. Unsubscribe from all events and listeners in deactivate()
+2. Everything is theme friendly
+3. You have readme.md
+
+## Guidelines
+
+-   All events/listeners are prefixed by your plugin name
+-   plugins and themes must not:
+    -   Obfuscate code to hide its purpose
+    -   Insert dynamic ads
+    -   Collect telemetry data client side
+-   All plugins must be under open source licenses and the source code must be disclosed
+
+## Disclosures
+
+The following have to be indicated clearly in the readme.md
+
+-   Payment is required for full access
+-   An account is required to use the plugin
+-   Network access. Clearly indicate what data is sent where and why
+-   Static ads or popups
+-   Server-side telemetry. Link to the privacy policy must be included.
+
+## Publishing
+
+To publish your plugin, create pull request to [sedenion plugin repository](https://github.com/SedenionCas/sedenion-plugins). In the pull request, you must:
+
+-   Install your plugin with `npm install`
+-   Add your plugin to the `index.ts` file.
+
+```ts
+import { ExamplePlugin } from "@sedenion/example-plugin";
+...
+{
+   name: "Example",
+   plugin: new ExamplePlugin(),
+   version: "1.0.2",
+   enabledByDefault: false,
+   authors: [
+   {
+      name: "Sedenion team",
+      profile: "https://github.com/SedenionCas",
+   },
+   ],
+},
+```
