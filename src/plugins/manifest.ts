@@ -53,7 +53,7 @@ export const PANEL_PLUGINS: PanelPlugin[] = [
         name: "Cas",
         version: "0.0.1",
         plugin: new CasPlugin(),
-        enabledByDefault: true,
+        enabledByDefault: false,
         authors: [
             {
                 name: "Anto Keinänen",

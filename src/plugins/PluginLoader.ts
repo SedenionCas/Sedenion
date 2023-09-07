@@ -10,7 +10,7 @@ export function LoadPanelPlugins(
     const plugins: PanelPluginManifest[] = [];
     const enabledPlugins =
         localStorage.getItem("enabledPlugins") ||
-        '["Calculator", "Excalidraw", "Cas"]';
+        '["Calculator", "Excalidraw"]';
     const parsedPlugins: string[] = JSON.parse(enabledPlugins);
     const appState = getAppState();
     appState.enabledPlugins = new Set(parsedPlugins);

@@ -19,7 +19,7 @@ interface AppState {
 let appState: AppState = {
     plugins: [],
     api: null,
-    enabledPlugins: new Set(["Calculator", "Excalidraw", "Cas"]),
+    enabledPlugins: new Set(["Calculator", "Excalidraw"]),
     trackEvent: Plausible({
         domain: "sedenion.net",
     }).trackEvent,
