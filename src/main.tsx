@@ -10,6 +10,7 @@ import {
 } from "react-pluggable";
 import { LoadPanelPlugins } from "./plugins/PluginLoader.ts";
 import { getAppState, setAppState } from "./store.ts";
+import { applyTheme } from "./themes/ThemeLoader.ts";
 
 const pluginStore = createPluginStore();
 pluginStore.install(new RendererPlugin());
@@ -18,6 +19,9 @@ const plugins = LoadPanelPlugins(pluginStore);
 const appState = getAppState();
 appState.plugins = plugins;
 setAppState(appState);
+
+const theme = localStorage.getItem("theme") || "base";
+applyTheme(theme);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

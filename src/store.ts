@@ -1,6 +1,6 @@
 import Plausible from "plausible-tracker";
 
-import type {  EventOptions } from "plausible-tracker";
+import type { EventOptions } from "plausible-tracker";
 import type { DockviewApi } from "dockview";
 import type { PlausibleOptions } from "plausible-tracker/build/main/lib/tracker";
 import type { PanelPluginManifest } from "sedenion-plugin-types";
@@ -15,7 +15,6 @@ interface AppState {
         eventData?: PlausibleOptions
     ) => void;
 }
-
 
 let appState: AppState = {
     plugins: [],

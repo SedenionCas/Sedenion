@@ -3,15 +3,15 @@ import { IconSquareRoot2 } from "@tabler/icons-react";
 import React from "react";
 
 import type { PluginStore } from "react-pluggable";
-import type {IPanelPlugin, SettingSection} from "sedenion-plugin-types";
+import type { IPanelPlugin, SettingSection } from "sedenion-plugin-types";
 
 class CasPlugin implements IPanelPlugin {
     namespace = "Cas";
     version = "0.0.1";
     icon = IconSquareRoot2;
-    
+
     settings: SettingSection[] = [];
-    
+
     index: number = 1;
     pluginStore!: PluginStore;
 

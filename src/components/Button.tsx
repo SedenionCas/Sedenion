@@ -9,7 +9,7 @@ function Button({ children, submit }: ButtonProps) {
     return (
         <button
             type={submit ? "submit" : "button"}
-            className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-800"
+            className="rounded-primary bg-primary-dark px-sm py-xs text-text-1 transition-colors duration-150 hover:bg-primary-dark hover:text-text-2"
         >
             {children}
         </button>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { evaluate } from "sedenion_engine";
 import MathBlock from "@/components/MathBlock";
 import CalcBlock from "./components/CalcBlock";
-import ErrorBlock from "./components/ErrorBlock";
+import Block from "@/components/Block";
 
 function CalculatorPanel() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
@@ -22,7 +22,14 @@ function CalculatorPanel() {
             setErrorBlock(<></>);
         } catch (err: unknown) {
             console.error(err);
-            setErrorBlock(<ErrorBlock content={err as string} />);
+            setErrorBlock(
+                <Block
+                    variant="error"
+                    className="w-[calc(100%-2*1.25rem)] whitespace-pre font-mono"
+                >
+                    {err as string}
+                </Block>
+            );
         }
     };
 
@@ -31,7 +38,7 @@ function CalculatorPanel() {
             <div className="h-[calc(100vh-5rem)]">
                 {...calcBlocks}
 
-                <div className="mt-5 flex w-full flex-col items-center">
+                <div className="mt-5 flex flex-col items-center">
                     {errorBlock}
                     <MathBlock
                         latex={inputLatex}

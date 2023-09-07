@@ -3,12 +3,16 @@
 Our plugin system allow you to create custom events and listeners to extend the functionality of Sedenion. The plugin system is based on the [react-pluggable](https://react-pluggable.github.io/docs/introduction) library.
 
 ## Event listeners
+
 Prefix the event name with the name of your plugin to avoid conflicts with other plugins.
 
 ```ts
-this.pluginStore.addEventListener(`${this.namespace}.authentication`, (event: any) => {
-    console.log(event);
-});
+this.pluginStore.addEventListener(
+    `${this.namespace}.authentication`,
+    (event: any) => {
+        console.log(event);
+    }
+);
 ```
 
 Always remember to remove event listeners when your plugin is deactivated:

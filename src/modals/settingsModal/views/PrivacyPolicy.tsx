@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 function PrivacyPolicy() {
     const LazyPrivacy = React.lazy(
-        () => import("@/components/modals/privacyPolicy/views/PrivacyPolicy")
+        () => import("@/modals/privacyPolicy/views/PrivacyPolicy")
     );
     return (
         <div className="markdown">

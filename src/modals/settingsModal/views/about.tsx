@@ -34,14 +34,14 @@ export default function About() {
     ));
 
     return (
-        <div className="text-truegray-100">
+        <div className="text-text-1">
             <h1 className="text-3xl">Sedenion</h1>
 
-            <p className="-mt1 text-truegray-400">
+            <p className="-mt1 text-text-2">
                 Version: {packageJson.version} • Engine:{" "}
                 {packageJson.dependencies.sedenion_engine}
             </p>
-            <hr className="-mx-1 my-4 border-truegray-400" />
+            <hr className="-mx-1 my-4 border-border" />
             <h2 className="text-2xl">Open source libraries used</h2>
             <ul className="ml-6 mt-2 list-disc">{creditsList}</ul>
         </div>

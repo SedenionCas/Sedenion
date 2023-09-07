@@ -17,7 +17,7 @@ export function LoadPanelPlugins(
     setAppState(appState);
 
     PANEL_PLUGINS.forEach((plugin) => {
-        if (parsedPlugins.includes(plugin.name)) return;
+        if (!parsedPlugins.includes(plugin.name)) return;
 
         pluginStore.install(plugin.plugin);
         plugins.push(plugin);

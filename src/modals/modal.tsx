@@ -19,7 +19,7 @@ function CloseButton({ setShowModal }: CloseButtonProps) {
             onClick={() => setShowModal(false)}
             className="relative cursor-pointer"
         >
-            <IconX className="absolute right-2 top-2 text-truegray-100" />
+            <IconX className="absolute right-2 top-2 text-text-2" />
         </div>
     );
 }
@@ -35,11 +35,11 @@ export default function Modal({
             {showModal ? (
                 <div
                     onClick={() => noClose || setShowModal(false)}
-                    className="absolute left-0 right-0 z-40 m-auto flex h-screen w-screen items-center justify-center bg-truegray-800 bg-opacity-75"
+                    className="absolute left-0 right-0 z-40 m-auto flex h-screen w-screen items-center justify-center bg-black bg-opacity-75"
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="flex h-3/4 w-3/4 flex-col rounded-md border border-truegray-400 bg-truegray-600"
+                        className="flex h-3/4 w-3/4 flex-col rounded-primary border border-border bg-surface-1"
                     >
                         {noClose || <CloseButton setShowModal={setShowModal} />}
                         {children}

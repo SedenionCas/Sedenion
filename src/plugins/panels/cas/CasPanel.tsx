@@ -2,8 +2,7 @@ import MathBlock from "@/components/MathBlock";
 import { useState } from "react";
 import { optimize_equation, optimize } from "sedenion_engine";
 import CalcBlock from "./components/CalcBlock";
-import ErrorBlock from "./components/ErrorBlock";
-import WarningBlock from "./components/WarningBlock";
+import Block from "@/components/Block";
 
 export default function CasPanel() {
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
@@ -33,23 +32,31 @@ export default function CasPanel() {
             setErrorBlock(<></>);
         } catch (err: unknown) {
             console.error(err);
-            setErrorBlock(<ErrorBlock content={err as string} />);
+            setErrorBlock(
+                <Block
+                    variant="error"
+                    className="w-[calc(100%-2*1.25rem)] whitespace-pre font-mono"
+                >
+                    {err as string}
+                </Block>
+            );
         }
     };
 
     return (
         <div className="overflow-y-auto">
             <div className="h-[calc(100vh-5rem)]">
-                <WarningBlock>
-                    <div className="markdown">
-                        <h2>Warning</h2>
-                        <p>
-                            This feature is still in very early beta. There may
-                            be incorrect answers. Please check if they are and
-                            report them. Thank you! :)
-                        </p>
-                    </div>
-                </WarningBlock>
+                <Block
+                    variant="warning"
+                    className="markdown w-[calc(100%-2*1.25rem)]"
+                >
+                    <h2>Warning</h2>
+                    <p>
+                        This feature is still in very early beta. There may be
+                        incorrect answers. Please check if they are and report
+                        them. Thank you! :)
+                    </p>
+                </Block>
                 {...calcBlocks}
 
                 <div className="mt-5 flex w-full flex-col items-center">

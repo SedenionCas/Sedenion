@@ -3,16 +3,16 @@ import { IconPencilBolt } from "@tabler/icons-react";
 import React from "react";
 
 import type { PluginStore } from "react-pluggable";
-import type {IPanelPlugin, SettingSection} from "sedenion-plugin-types";
+import type { IPanelPlugin, SettingSection } from "sedenion-plugin-types";
 
 class ExcalidrawPlugin implements IPanelPlugin {
     namespace = "Excalidraw";
     version = "0.15.2";
     icon = IconPencilBolt;
-    
+
     index: number = 1;
     pluginStore!: PluginStore;
-    
+
     settings: SettingSection[] = [];
 
     getPluginName() {

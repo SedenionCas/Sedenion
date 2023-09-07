@@ -1,29 +1,16 @@
 import LazySuspense from "@/components/suspense/LazySuspense";
-import { IconCalculator } from "@tabler/icons-react";
+import { IconPalette } from "@tabler/icons-react";
 import React from "react";
-import { Setting } from "sedenion-plugin-types";
 
 import type { PluginStore } from "react-pluggable";
 import type { IPanelPlugin, SettingSection } from "sedenion-plugin-types";
 
-class CalculatorPlugin implements IPanelPlugin {
-    namespace = "Calculator";
+class ThemeTestPlugin implements IPanelPlugin {
+    namespace = "ThemeTest";
     version = "0.0.0";
-    icon = IconCalculator;
+    icon = IconPalette;
 
-    settings: SettingSection[] = [
-        {
-            name: "Units",
-            settings: [
-                new Setting(
-                    "Angle unit",
-                    "Specify the unit of angle",
-                    ["deg", "rad"],
-                    "deg"
-                ),
-            ],
-        },
-    ];
+    settings: SettingSection[] = [];
 
     index: number = 1;
     pluginStore!: PluginStore;
@@ -53,11 +40,11 @@ class CalculatorPlugin implements IPanelPlugin {
     }
 
     display(): React.JSX.Element {
-        const LazyCalculator = React.lazy(() => import("./CalculatorPanel"));
+        const LazyThemeTest = React.lazy(() => import("./ThemeTestPanel"));
 
         return (
             <LazySuspense>
-                <LazyCalculator />
+                <LazyThemeTest />
             </LazySuspense>
         );
     }
@@ -71,9 +58,4 @@ class CalculatorPlugin implements IPanelPlugin {
     }
 }
 
-export default CalculatorPlugin;
-
-export type PluginStoreCalculator = {
-    executeFunction(functionName: "Calculator.activate"): void;
-    executeFunction(functionName: "Calculator.deactivate"): void;
-};
+export default ThemeTestPlugin;
