@@ -5,13 +5,7 @@
         "licenseUrl": "https://github.com/excalidraw/excalidraw",
         "parents": "sedenion"
     },
-    "@hcaptcha/react-hcaptcha@1.8.1": {
-        "licenses": "MIT",
-        "repository": "https://github.com/hCaptcha/react-hcaptcha",
-        "licenseUrl": "https://github.com/hCaptcha/react-hcaptcha/raw/master/LICENSE",
-        "parents": "sedenion"
-    },
-    "@tabler/icons-react@2.32.0": {
+    "@tabler/icons-react@2.29.0": {
         "licenses": "MIT",
         "repository": "https://github.com/tabler/tabler-icons",
         "licenseUrl": "https://github.com/tabler/tabler-icons/raw/master/LICENSE",
@@ -47,10 +41,6 @@
         "licenseUrl": "https://github.com/viktorstrate/react-mathquill/raw/master/LICENSE",
         "parents": "sedenion"
     },
-    "react-pluggable@0.4.3": {
-        "licenses": "MIT",
-        "parents": "sedenion"
-    },
     "react-query@3.39.3": {
         "licenses": "MIT",
         "repository": "https://github.com/tannerlinsley/react-query",
@@ -63,15 +53,7 @@
         "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
         "parents": "sedenion"
     },
-    "sedenion-plugin-types@1.3.0": {
-        "licenses": "ISC",
-        "parents": "sedenion"
-    },
-    "sedenion-plugins@1.0.1": {
-        "licenses": "GPL-3.0",
-        "parents": "sedenion"
-    },
-    "sedenion_engine@0.2.0-beta": {
+    "sedenion_engine@0.1.2": {
         "licenses": "GNU GPLv3",
         "repository": "https://github.com/SedenionCas/sedenion-engine",
         "licenseUrl": "https://github.com/SedenionCas/sedenion-engine/raw/master/LICENSE",
