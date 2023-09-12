@@ -17,6 +17,12 @@
         "licenseUrl": "https://github.com/tabler/tabler-icons/raw/master/LICENSE",
         "parents": "sedenion"
     },
+    "clsx@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/lukeed/clsx",
+        "licenseUrl": "https://github.com/lukeed/clsx/raw/master/license",
+        "parents": "sedenion"
+    },
     "dockview@1.8.2": {
         "licenses": "MIT",
         "repository": "https://github.com/mathuo/dockview",
@@ -63,7 +69,7 @@
         "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
         "parents": "sedenion"
     },
-    "sedenion-plugin-types@1.3.0": {
+    "sedenion-plugin-types@1.4.1": {
         "licenses": "ISC",
         "parents": "sedenion"
     },
@@ -71,10 +77,16 @@
         "licenses": "GPL-3.0",
         "parents": "sedenion"
     },
-    "sedenion_engine@0.2.0-beta": {
+    "sedenion_engine@0.2.2-beta": {
         "licenses": "GNU GPLv3",
         "repository": "https://github.com/SedenionCas/sedenion-engine",
         "licenseUrl": "https://github.com/SedenionCas/sedenion-engine/raw/master/LICENSE",
+        "parents": "sedenion"
+    },
+    "tailwind-merge@1.14.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/dcastil/tailwind-merge",
+        "licenseUrl": "https://github.com/dcastil/tailwind-merge/raw/master/LICENSE.md",
         "parents": "sedenion"
     }
 }
