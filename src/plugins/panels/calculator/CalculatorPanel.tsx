@@ -7,6 +7,7 @@ import PluginEvent from "@/plugins/Event";
 
 import type { SaveState } from "@/plugins/SaveManager";
 import type CalculatorPlugin from "./CalculatorPlugin";
+import SaveManager from "@/plugins/SaveManager";
 
 type CalculatorPluginProps = {
     plugin: CalculatorPlugin;
@@ -43,14 +44,25 @@ function CalculatorPanel({ plugin }: CalculatorPluginProps) {
     };
 
     useEffect(() => {
+        const data = SaveManager.loadSaveState(
+            `PANEL-${plugin.getPluginName()};${index.current}`
+        );
+        if (data?.calcBlocks) {
+            setCalcBlocks(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                data.calcBlocks.map((props: any) => <CalcBlock {...props} />)
+            );
+        }
+    }, []);
+
+    useEffect(() => {
+        if (calcBlocks.length == 0) return;
+
         const data: SaveState = {
             from: `${plugin.getPluginName()};${index.current}`,
             kind: "PANEL",
             data: {
-                calcBlocks: JSON.stringify(
-                    calcBlocks.map((block) => block.props)
-                ),
-                errorBlock: JSON.stringify(errorBlock.props),
+                calcBlocks: calcBlocks.map((block) => block.props),
             },
         };
 
@@ -58,7 +70,7 @@ function CalculatorPanel({ plugin }: CalculatorPluginProps) {
             new PluginEvent("Save.request_save", JSON.stringify(data))
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [calcBlocks, errorBlock]);
+    }, [calcBlocks]);
 
     return (
         <div className="overflow-y-auto">

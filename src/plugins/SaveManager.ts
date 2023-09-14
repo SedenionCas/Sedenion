@@ -5,7 +5,8 @@ type SaveState = {
     kind: "VIEW" | "PANEL";
     from: string;
     data: {
-        [key: string]: string;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        [key: string]: any;
     };
 };
 
@@ -44,6 +45,17 @@ class SaveManager implements IPlugin {
             `save-${state.kind}-${state.from}`,
             JSON.stringify(state.data)
         );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    static loadSaveState(name: string): {[key: string]: any} | null {
+        const key = `save-${name}`;
+        console.log("Loading save state", key);
+        const state = localStorage.getItem(key);
+        if (state) {
+            return JSON.parse(state);
+        }
+        return null;
     }
 }
 

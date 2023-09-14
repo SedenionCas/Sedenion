@@ -1,11 +1,34 @@
-import { Excalidraw, THEME, useHandleLibrary } from "@excalidraw/excalidraw";
+import {
+    Excalidraw,
+    THEME,
+    restore,
+    useHandleLibrary,
+} from "@excalidraw/excalidraw";
 import { useEffect, useRef, useState } from "react";
+import PluginEvent from "@/plugins/Event";
 
 import type { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
 import type ExcalidrawPlugin from "./ExcalidrawPlugin";
 import type { SaveState } from "@/plugins/SaveManager";
-import PluginEvent from "@/plugins/Event";
+import type { RestoredDataState } from "@excalidraw/excalidraw/types/data/restore";
+import SaveManager from "@/plugins/SaveManager";
+
+function loadData(name: string): Promise<RestoredDataState> {
+    return new Promise((resolve) => {
+        const data = SaveManager.loadSaveState(`PANEL-${name}`) || {
+            elements: [],
+            appState: {
+                viewBackgroundColor: "#0d0d0d",
+                currentItemStrokeColor: "#ffffff",
+            },
+            files: []
+        };
+        
+        const sceneData = restore(data as RestoredDataState, null, null);
+        resolve(sceneData);
+    });
+}
 
 type ExcalidrawPluginProps = {
     plugin: ExcalidrawPlugin;
@@ -23,12 +46,18 @@ export default function ExcalidrawPanel({ plugin }: ExcalidrawPluginProps) {
     useHandleLibrary({ excalidrawAPI });
 
     useEffect(() => {
+        if (elements.length == 0) return;
+
         const data: SaveState = {
             from: `${plugin.getPluginName()};${index.current}`,
             kind: "PANEL",
             data: {
-                elements: JSON.stringify(elements),
-                appState: JSON.stringify(appState),
+                elements: elements,
+                appState: {
+                    ...appState,
+                    collaborators: undefined,
+
+                },
             },
         };
 
@@ -43,10 +72,13 @@ export default function ExcalidrawPanel({ plugin }: ExcalidrawPluginProps) {
             <Excalidraw
                 theme={THEME.DARK}
                 onChange={(elements, appState) => {
+                    console.log("change");
                     setElements(elements);
                     setAppState(appState);
                 }}
-                // initialData={loadData(panelId.current)}
+                initialData={loadData(
+                    `${plugin.getPluginName()};${index.current}`
+                )}
                 ref={(api: ExcalidrawImperativeAPI) => setExcalidrawAPI(api)}
             />
         </div>
