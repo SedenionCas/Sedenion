@@ -11,9 +11,11 @@ import {
 import { LoadPanelPlugins } from "./plugins/PluginLoader.ts";
 import { getAppState, setAppState } from "./store.ts";
 import { applyTheme } from "./themes/ThemeLoader.ts";
+import SaveManager from "./plugins/SaveManager.ts";
 
 const pluginStore = createPluginStore();
 pluginStore.install(new RendererPlugin());
+pluginStore.install(new SaveManager());
 
 const plugins = LoadPanelPlugins(pluginStore);
 const appState = getAppState();

@@ -15,6 +15,10 @@ class CasPlugin implements IPanelPlugin {
     index: number = 1;
     pluginStore!: PluginStore;
 
+    constructor() {
+        this.display = this.display.bind(this);
+    }
+
     getPluginName() {
         return `${this.namespace}@${this.version}`;
     }
@@ -50,7 +54,7 @@ class CasPlugin implements IPanelPlugin {
 
         return (
             <LazySuspense>
-                <LazyCas />
+                <LazyCas plugin={this} />
             </LazySuspense>
         );
     }

@@ -1,10 +1,19 @@
 import MathBlock from "@/components/MathBlock";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { optimize_equation, optimize } from "sedenion_engine";
 import CalcBlock from "./components/CalcBlock";
 import Block from "@/components/Block";
+import PluginEvent from "@/plugins/Event";
 
-export default function CasPanel() {
+import type CasPlugin from "./CasPlugin";
+import type { SaveState } from "@/plugins/SaveManager";
+
+type CasPluginProps = {
+    plugin: CasPlugin;
+};
+
+export default function CasPanel({ plugin }: CasPluginProps) {
+    const index = useRef(plugin.getIndex() - 1);
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
     const [errorBlock, setErrorBlock] = useState<JSX.Element>(<></>);
     const [inputLatex, setInputLatex] = useState("");
@@ -42,6 +51,24 @@ export default function CasPanel() {
             );
         }
     };
+
+    useEffect(() => {
+        const data: SaveState = {
+            from: `${plugin.getPluginName()};${index.current}`,
+            kind: "PANEL",
+            data: {
+                calcBlocks: JSON.stringify(
+                    calcBlocks.map((block) => block.props)
+                ),
+                errorBlock: JSON.stringify(errorBlock.props),
+            },
+        };
+
+        plugin.pluginStore.dispatchEvent(
+            new PluginEvent("Save.request_save", JSON.stringify(data))
+        );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [calcBlocks, errorBlock]);
 
     return (
         <div className="overflow-y-auto">

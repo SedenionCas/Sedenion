@@ -15,6 +15,10 @@ class ExcalidrawPlugin implements IPanelPlugin {
 
     settings: SettingSection[] = [];
 
+    constructor() {
+        this.display = this.display.bind(this);
+    }
+
     getPluginName() {
         return `${this.namespace}@${this.version}`;
     }
@@ -50,7 +54,7 @@ class ExcalidrawPlugin implements IPanelPlugin {
 
         return (
             <LazySuspense>
-                <LazyExcalidraw />
+                <LazyExcalidraw plugin={this} />
             </LazySuspense>
         );
     }

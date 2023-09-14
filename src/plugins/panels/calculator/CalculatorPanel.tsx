@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { evaluate } from "sedenion_engine";
 import MathBlock from "@/components/MathBlock";
 import CalcBlock from "./components/CalcBlock";
 import Block from "@/components/Block";
+import PluginEvent from "@/plugins/Event";
 
-function CalculatorPanel() {
+import type { SaveState } from "@/plugins/SaveManager";
+import type CalculatorPlugin from "./CalculatorPlugin";
+
+type CalculatorPluginProps = {
+    plugin: CalculatorPlugin;
+};
+
+function CalculatorPanel({ plugin }: CalculatorPluginProps) {
+    const index = useRef(plugin.getIndex() - 1);
     const [calcBlocks, setCalcBlocks] = useState<JSX.Element[]>([]);
     const [errorBlock, setErrorBlock] = useState<JSX.Element>(<></>);
     const [inputLatex, setInputLatex] = useState("");
@@ -32,6 +41,24 @@ function CalculatorPanel() {
             );
         }
     };
+
+    useEffect(() => {
+        const data: SaveState = {
+            from: `${plugin.getPluginName()};${index.current}`,
+            kind: "PANEL",
+            data: {
+                calcBlocks: JSON.stringify(
+                    calcBlocks.map((block) => block.props)
+                ),
+                errorBlock: JSON.stringify(errorBlock.props),
+            },
+        };
+
+        plugin.pluginStore.dispatchEvent(
+            new PluginEvent("Save.request_save", JSON.stringify(data))
+        );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [calcBlocks, errorBlock]);
 
     return (
         <div className="overflow-y-auto">

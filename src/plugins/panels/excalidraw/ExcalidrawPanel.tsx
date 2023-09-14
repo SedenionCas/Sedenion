@@ -1,43 +1,21 @@
-import { getAppState } from "@/store";
-import {
-    Excalidraw,
-    THEME,
-    restore,
-    useHandleLibrary,
-} from "@excalidraw/excalidraw";
-import type { RestoredDataState } from "@excalidraw/excalidraw/types/data/restore";
-import type { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
-import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
+import { Excalidraw, THEME, useHandleLibrary } from "@excalidraw/excalidraw";
 import { useEffect, useRef, useState } from "react";
 
-function loadData(panelId: string): Promise<RestoredDataState> {
-    return new Promise((resolve) => {
-        const data = sessionStorage.getItem(panelId);
-        if (data) {
-            const parsed = JSON.parse(data);
-            const sceneData = restore(parsed, null, null);
-            resolve(sceneData);
-        } else {
-            const state = restore(
-                {
-                    appState: {
-                        viewBackgroundColor: "#0d0d0d",
-                        currentItemStrokeColor: "#ffffff",
-                    },
-                },
-                null,
-                null
-            );
+import type { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
+import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
+import type ExcalidrawPlugin from "./ExcalidrawPlugin";
+import type { SaveState } from "@/plugins/SaveManager";
+import PluginEvent from "@/plugins/Event";
 
-            resolve(state);
-        }
-    });
-}
+type ExcalidrawPluginProps = {
+    plugin: ExcalidrawPlugin;
+};
 
-export default function ExcalidrawPanel() {
-    const elementsRef = useRef<readonly ExcalidrawElement[]>([]);
-    const appStateRef = useRef({});
-    const panelId = useRef("");
+export default function ExcalidrawPanel({ plugin }: ExcalidrawPluginProps) {
+    const index = useRef(plugin.getIndex() - 1);
+
+    const [elements, setElements] = useState<readonly ExcalidrawElement[]>([]);
+    const [appState, setAppState] = useState({});
 
     const [excalidrawAPI, setExcalidrawAPI] =
         useState<ExcalidrawImperativeAPI | null>(null);
@@ -45,38 +23,30 @@ export default function ExcalidrawPanel() {
     useHandleLibrary({ excalidrawAPI });
 
     useEffect(() => {
-        if (panelId.current == "") {
-            panelId.current = getAppState().api?.activePanel?.id || "noId";
-        }
-
-        return () => {
-            if (
-                elementsRef.current.length > 0 &&
-                Object.keys(appStateRef.current).length > 0
-            ) {
-                const data = {
-                    elements: elementsRef.current,
-                    appState: {
-                        ...appStateRef.current,
-                        collaborators: undefined,
-                    },
-                };
-                console.log("Teardown", data);
-
-                sessionStorage.setItem(panelId.current, JSON.stringify(data));
-            }
+        const data: SaveState = {
+            from: `${plugin.getPluginName()};${index.current}`,
+            kind: "PANEL",
+            data: {
+                elements: JSON.stringify(elements),
+                appState: JSON.stringify(appState),
+            },
         };
-    }, [panelId]);
+
+        plugin.pluginStore.dispatchEvent(
+            new PluginEvent("Save.request_save", JSON.stringify(data))
+        );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [elements, appState]);
 
     return (
         <div className="excalidraw-theme h-full w-full">
             <Excalidraw
                 theme={THEME.DARK}
                 onChange={(elements, appState) => {
-                    elementsRef.current = elements;
-                    appStateRef.current = appState;
+                    setElements(elements);
+                    setAppState(appState);
                 }}
-                initialData={loadData(panelId.current)}
+                // initialData={loadData(panelId.current)}
                 ref={(api: ExcalidrawImperativeAPI) => setExcalidrawAPI(api)}
             />
         </div>
